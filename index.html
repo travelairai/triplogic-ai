@@ -3,23 +3,21 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>triplogic.ai — Trips, Made Logical</title>
-  <meta name="description" content="One prompt. Your perfect trip. AI that plans with pure logic — no chaos, no guesswork, just optimized journeys."/>
+  <title>triplogic.ai — Intelligent Travel, Perfected</title>
+  <meta name="description" content="triplogic.ai is the upcoming AI travel intelligence platform that turns your vision into flawless, logical journeys. Join the founding waitlist."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #030712;
-      --surface: #0f172a;
-      --text: #f8fafb;
-      --muted: #cbd5e1;
-      --accent: #f59e0b;       /* sunset gold/orange */
-      --accent-light: #fbbf24;
-      --sky: #60a5fa;
-      --glow: rgba(245,158,11,0.25);
-      --radius: 20px;
-      --transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+      --bg: #0a0f1c;
+      --surface: #111827;
+      --text: #f9fafb;
+      --muted: #d1d5db;
+      --gold: #d4af37;
+      --gold-dark: #b8972e;
+      --radius: 24px;
+      --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -27,41 +25,45 @@
       font-family: 'Inter', system-ui, sans-serif;
       background: var(--bg);
       color: var(--text);
-      line-height: 1.6;
+      line-height: 1.7;
       overflow-x: hidden;
     }
 
     h1, h2, h3 {
-      font-family: 'Space Grotesk', system-ui, sans-serif;
-      font-weight: 700;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      letter-spacing: -0.5px;
     }
 
-    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 5vw; }
+    .wrap { max-width: 1480px; margin: 0 auto; padding: 0 6vw; }
 
     header {
       position: fixed;
       inset: 0 0 auto 0;
       z-index: 1000;
-      background: rgba(3,7,18,0.75);
-      backdrop-filter: blur(16px);
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      background: rgba(10,15,28,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(212,175,55,0.08);
       transition: var(--transition);
     }
 
-    header.scrolled { background: rgba(3,7,18,0.95); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    header.scrolled {
+      background: rgba(10,15,28,0.95);
+      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
+    }
 
     nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.75rem 0;
+      padding: 2.5rem 0;
     }
 
     .logo {
-      font-size: 2.5rem;
-      font-weight: 900;
-      letter-spacing: -2px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      font-size: 3.2rem;
+      font-weight: 700;
+      letter-spacing: -1.5px;
+      background: linear-gradient(90deg, var(--gold), var(--gold-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -69,12 +71,12 @@
 
     .nav-links {
       display: flex;
-      gap: 3rem;
+      gap: 3.5rem;
+      font-size: 1.15rem;
       font-weight: 500;
-      font-size: 1.1rem;
     }
 
-    .nav-links a:hover { color: var(--accent); }
+    .nav-links a:hover { color: var(--gold); }
 
     .hero {
       min-height: 100vh;
@@ -84,92 +86,102 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: radial-gradient(circle at 20% 30%, rgba(245,158,11,0.12) 0%, transparent 60%),
-                  radial-gradient(circle at 80% 70%, rgba(245,158,11,0.08) 0%, transparent 70%),
-                  linear-gradient(to bottom, #0a0f1e, #111827);
+      background: linear-gradient(to bottom, #0a0f1c, #111827);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 1000px;
+      max-width: 1100px;
     }
 
     h1 {
-      font-size: clamp(4.5rem, 12vw, 9.5rem);
-      font-weight: 900;
-      line-height: 0.92;
-      margin-bottom: 1.5rem;
-      letter-spacing: -3px;
+      font-size: clamp(5rem, 12vw, 11rem);
+      font-weight: 700;
+      line-height: 0.9;
+      margin-bottom: 2rem;
+      letter-spacing: -4px;
     }
 
     .highlight {
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      background: linear-gradient(90deg, var(--gold), var(--gold-dark));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
     .subtitle {
-      font-size: clamp(1.4rem, 3vw, 2rem);
+      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
       color: var(--muted);
-      max-width: 800px;
-      margin: 0 auto 3.5rem;
-      font-weight: 400;
+      max-width: 900px;
+      margin: 0 auto 4rem;
+      font-weight: 300;
     }
 
     .btn-group {
       display: flex;
-      gap: 2rem;
+      gap: 2.5rem;
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .btn {
-      font-size: 1.3rem;
-      padding: 1.2rem 3.2rem;
+      font-size: 1.4rem;
+      padding: 1.4rem 4rem;
       border-radius: 9999px;
       transition: var(--transition);
+      font-weight: 600;
     }
 
     .btn-primary {
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
-      color: #000;
-      box-shadow: 0 0 40px var(--glow);
+      background: var(--gold);
+      color: #0a0f1c;
+      box-shadow: 0 0 50px var(--glow);
     }
 
     .btn-primary:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 60px var(--glow);
+      box-shadow: 0 0 80px var(--glow);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid var(--gold);
+      color: var(--gold);
+    }
+
+    .btn-outline:hover {
+      background: rgba(212,175,55,0.1);
     }
 
     .perks {
-      margin-top: 4rem;
+      margin-top: 5rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 1.5rem;
+      gap: 1.8rem;
       justify-content: center;
     }
 
     .perk {
       background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.06);
+      border: 1px solid rgba(212,175,55,0.12);
       border-radius: 9999px;
-      padding: 0.8rem 1.6rem;
-      font-size: 0.95rem;
+      padding: 1rem 2rem;
+      font-size: 1rem;
       color: var(--muted);
     }
 
     footer {
-      padding: 120px 0 60px;
+      padding: 140px 0 80px;
       text-align: center;
       color: var(--muted);
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 5.5rem; }
-      .subtitle { font-size: 1.35rem; }
-      .btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
+      h1 { font-size: 6rem; }
+      .subtitle { font-size: 1.5rem; }
+      .btn { padding: 1.1rem 3rem; font-size: 1.2rem; }
+      .nav-links { gap: 2rem; font-size: 1rem; }
     }
   </style>
 </head>
@@ -192,7 +204,7 @@
         <span class="highlight">made logical.</span>
       </h1>
       <p class="subtitle">
-        One prompt. Your perfect itinerary. AI that thinks logically — removes chaos, maximizes joy.
+        One prompt. Your perfect journey. AI that plans with precision, elegance, and flawless logic.
       </p>
 
       <div class="btn-group">
@@ -200,9 +212,9 @@
       </div>
 
       <div class="perks">
-        <div class="perk">Early access at launch</div>
-        <div class="perk">Exclusive beta invites</div>
-        <div class="perk">Influence the roadmap</div>
+        <div class="perk">First access at launch</div>
+        <div class="perk">Exclusive beta experience</div>
+        <div class="perk">Shape the roadmap</div>
         <div class="perk">Founding member status</div>
       </div>
     </div>
@@ -211,9 +223,9 @@
 
 <section id="waitlist" style="background:var(--surface);">
   <div class="wrap" style="max-width:720px;text-align:center;">
-    <h2 style="font-size:3.5rem;margin-bottom:1.5rem;">Be First. Travel Smarter.</h2>
+    <h2 style="font-size:3.5rem;margin-bottom:1.5rem;">Be Among the First</h2>
     <p style="font-size:1.35rem;color:var(--muted);margin-bottom:3rem;">
-      triplogic.ai is in development. Secure your spot before we open to the public.
+      triplogic.ai is in development. Secure your place before we open to the public.
     </p>
 
     <form action="https://formspree.io/f/xnjjngql" method="POST">
