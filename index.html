@@ -1,249 +1,255 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>triplogic.ai — Trips, Made Logical</title>
-<meta name="description" content="triplogic.ai is the AI-powered travel planner that turns your ideas into logical, optimized, and stress-free itineraries. Join the waitlist for early access.">
-<style>
-:root {
-  --bg: #0a1421;
-  --surface: #13203a;
-  --text: #f8fafc;
-  --muted: #c7d2fe;
-  --accent: #00d4ff;
-  --radius: 16px;
-  --max: 1200px;
-}
-* { margin:0; padding:0; box-sizing:border-box; }
-body {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-a { color:inherit; text-decoration:none; }
-.wrap { max-width:var(--max); margin:0 auto; padding:0 24px; }
-section { padding:100px 0; }
-h1,h2,h3 { line-height:1.2; }
-.btn {
-  padding:14px 32px;
-  border-radius:12px;
-  font-weight:600;
-  display:inline-block;
-  transition:all .25s ease;
-}
-.btn-primary {
-  background:var(--accent);
-  color:#0a1421;
-}
-.btn-primary:hover { transform:translateY(-2px); box-shadow:0 12px 32px rgba(0,212,255,.4); }
-.btn-outline {
-  border:1px solid var(--muted);
-}
-.btn-outline:hover { border-color:var(--accent); color:var(--accent); }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>triplogic.ai — Trips, Made Logical</title>
+  <meta name="description" content="One prompt. Your perfect trip. AI that plans with pure logic — no chaos, no guesswork, just optimized journeys. Join the waitlist."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0a0f1e;
+      --surface: #111827;
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --accent: #f59e0b;       /* sunset gold/orange */
+      --accent-light: #fbbf24;
+      --sky: #60a5fa;
+      --glow: rgba(245,158,11,0.25);
+      --radius: 20px;
+      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
 
-header {
-  position:sticky;
-  top:0;
-  z-index:100;
-  background:rgba(10,20,33,.9);
-  backdrop-filter:blur(12px);
-  border-bottom:1px solid rgba(255,255,255,.08);
-}
-header .wrap {
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:20px 0;
-}
-.logo {
-  font-size:clamp(36px, 5vw, 48px);
-  font-weight:900;
-  background:linear-gradient(90deg,var(--accent),#0099ff);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-  letter-spacing: -1px;
-}
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
 
-.hero {
-  text-align:center;
-  padding:180px 0 140px;
-  background: linear-gradient(135deg, #0a1421 0%, #13203a 100%);
-}
-.hero h1 {
-  font-size:clamp(48px, 8vw, 80px);
-  margin-bottom:24px;
-  font-weight:800;
-}
-.hero .highlight { color:var(--accent); }
-.hero p {
-  font-size:22px;
-  max-width:720px;
-  margin:0 auto 40px;
-  color:var(--muted);
-}
-.hero .btn-group {
-  display:flex;
-  gap:24px;
-  justify-content:center;
-  flex-wrap:wrap;
-}
+    a { color:inherit; text-decoration:none; }
 
-.about { background:var(--surface); }
-.about-grid {
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
-  gap:32px;
-  margin-top:48px;
-}
-.about-card {
-  background:rgba(255,255,255,.04);
-  border:1px solid rgba(255,255,255,.08);
-  border-radius:var(--radius);
-  padding:40px 32px;
-  transition:all .3s ease;
-}
-.about-card:hover {
-  transform:translateY(-8px);
-  border-color:var(--accent);
-  box-shadow:0 16px 48px rgba(0,212,255,.12);
-}
-.about-icon {
-  font-size:48px;
-  margin-bottom:24px;
-  color:var(--accent);
-}
+    .wrap {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 5vw;
+    }
 
-.cta {
-  text-align:center;
-  background:linear-gradient(135deg,#13203a,#0a1421);
-}
-.cta h2 { font-size:48px; margin-bottom:24px; }
-.cta p {
-  font-size:22px;
-  color:var(--muted);
-  max-width:640px;
-  margin:0 auto 48px;
-}
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(10,15,30,0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: var(--transition);
+    }
 
-footer {
-  padding:80px 0 40px;
-  text-align:center;
-  color:var(--muted);
-  border-top:1px solid rgba(255,255,255,.08);
-}
-footer .logo {
-  font-size:32px;
-  margin-bottom:16px;
-}
+    header.scrolled {
+      background: rgba(10,15,30,0.92);
+      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
 
-@media (max-width:768px) {
-  section { padding:80px 0; }
-  .hero { padding:120px 0 80px; }
-  h1 { font-size:48px; }
-  .btn { padding:16px 32px; font-size:18px; }
-  .logo { font-size:36px; }
-}
-</style>
+    nav .wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+    }
+
+    .logo {
+      font-size: 2.25rem;
+      font-weight: 900;
+      letter-spacing: -1px;
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      font-weight: 500;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a:hover { color: var(--accent); }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a0f1e 0%, #111827 100%);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 20% 30%, rgba(245,158,11,0.12) 0%, transparent 50%),
+                  radial-gradient(circle at 80% 70%, rgba(245,158,11,0.08) 0%, transparent 60%);
+      opacity: 0.7;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+    }
+
+    h1 {
+      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-weight: 900;
+      line-height: 0.95;
+      margin-bottom: 1.5rem;
+      letter-spacing: -2px;
+    }
+
+    .highlight {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto 3rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      font-size: 1.125rem;
+      padding: 1rem 2.5rem;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1.5px solid var(--muted);
+    }
+
+    .btn-outline:hover {
+      background: rgba(255,255,255,0.05);
+      border-color: var(--accent);
+    }
+
+    .perks {
+      margin-top: 4rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+
+    .perk {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 12px;
+      padding: 1rem 1.5rem;
+      font-size: 0.95rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 80px 0 40px;
+      text-align: center;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 4rem; }
+      .subtitle { font-size: 1.25rem; }
+      .btn { padding: 0.9rem 2rem; font-size: 1rem; }
+    }
+  </style>
 </head>
 <body>
 
-<!-- HEADER -->
-<header>
+<header id="header">
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <div style="display:flex;gap:32px;align-items:center;font-weight:500;">
-      <a href="#about">About</a>
-      <a href="#cta">Join Waitlist</a>
+    <div style="display:flex;gap:2.5rem;align-items:center;font-weight:500;">
+      <a href="#waitlist">Join Waitlist</a>
     </div>
   </div>
 </header>
 
-<!-- HERO -->
 <section class="hero">
   <div class="wrap">
     <h1>
       Trips,<br/>
       <span class="highlight">made logical.</span>
     </h1>
-    <p>
-      One prompt. Your perfect itinerary. AI that plans with reason — not randomness.
+    <p class="subtitle">
+      One prompt. Your perfect itinerary. AI that plans with pure reason — no chaos, no guesswork, just optimized journeys.
     </p>
+
     <div class="btn-group">
-      <a href="#cta" class="btn btn-primary" style="font-size:20px;padding:18px 48px;">Join the Waitlist</a>
-      <a href="#about" class="btn btn-outline" style="font-size:20px;padding:18px 48px;">Learn More</a>
+      <a href="#waitlist" class="btn btn-primary">Join the Founding Waitlist</a>
+      <a href="#features" class="btn btn-outline">See the Vision</a>
+    </div>
+
+    <div class="perks">
+      <div class="perk">Early access when we launch</div>
+      <div class="perk">Exclusive beta invites</div>
+      <div class="perk">Influence the roadmap</div>
+      <div class="perk">Founding member status</div>
     </div>
   </div>
 </section>
 
-<!-- ABOUT / WHAT IT IS -->
-<section id="about" class="about">
-  <div class="wrap">
-    <h2 style="text-align:center;font-size:48px;margin-bottom:64px;">What is triplogic.ai?</h2>
-    <p style="max-width:880px;margin:0 auto 48px;text-align:center;font-size:20px;color:var(--muted);">
-      triplogic.ai is an upcoming AI travel planner built from the ground up to eliminate chaos and deliver logical, optimized trips.  
-      No more endless tabs, conflicting options, or decision fatigue — just clear, intelligent plans tailored to you.
+<section id="waitlist" style="background:var(--surface);">
+  <div class="wrap" style="max-width:720px;text-align:center;">
+    <h2 style="font-size:3rem;margin-bottom:1.5rem;">Be First. Travel Smarter.</h2>
+    <p style="font-size:1.25rem;color:var(--muted);margin-bottom:3rem;">
+      triplogic.ai is in development. Sign up to get notified the moment we open early access.
     </p>
-    <div class="about-grid">
-      <div class="about-card">
-        <div class="about-icon">🧠</div>
-        <h3>One Prompt Planning</h3>
-        <p>Describe your trip in plain English — budget, pace, interests, dates — and get a complete, logical itinerary in seconds.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">⚖️</div>
-        <h3>Transparent Trade-offs</h3>
-        <p>See clear comparisons of cost, time, comfort, and quality — so you always know why each choice is the best.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🔄</div>
-        <h3>Real-Time Adaptation</h3>
-        <p>Dynamic updates for flight changes, hotel deals, weather, events — your plan evolves automatically.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🛡️</div>
-        <h3>Privacy First</h3>
-        <p>Your travel data stays yours — end-to-end encryption, no selling, no sharing.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🎯</div>
-        <h3>Personalized Logic</h3>
-        <p>Learns your style — family trips, solo adventures, budget, luxury — and applies logic that fits you.</p>
-      </div>
-      <div class="about-card">
-        <div class="about-icon">🌍</div>
-        <h3>Global & Flexible</h3>
-        <p>Multi-city, international, last-minute, or dream vacations — works anywhere, anytime.</p>
-      </div>
-    </div>
-  </div>
-</section>
 
-<!-- CTA / Waitlist Form -->
-<section id="cta" class="cta">
-  <div class="wrap">
-    <h2>Travel with logic. Join early.</h2>
-    <p>triplogic.ai is in development. Be first to experience smarter, stress-free travel planning.</p>
-
-    <form action="https://formspree.io/f/xnjjngql" method="POST" style="max-width:600px;margin:48px auto;text-align:left;">
-      <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:16px;"/>
-      <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:16px;"/>
-      <textarea name="message" placeholder="What kind of trips do you want triplogic.ai to make logical?" rows="4" style="width:100%;padding:16px;border-radius:12px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:16px;resize:vertical;"></textarea>
-      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:24px;font-size:20px;padding:18px 0;">Join the Waitlist</button>
+    <form action="https://formspree.io/f/xnjjngql" method="POST">
+      <input type="email" name="email" placeholder="Your email address" required
+             style="width:100%;max-width:480px;padding:18px 24px;font-size:1.125rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:var(--text);margin-bottom:1.5rem;"/>
+      <button type="submit" class="btn btn-primary" style="font-size:1.25rem;padding:18px 48px;width:100%;max-width:480px;">
+        Join the Waitlist →
+      </button>
     </form>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <p style="margin-top:16px;font-size:14px;">
+    <p style="margin-top:1.5rem;font-size:14px;opacity:0.7;">
       © <script>document.write(new Date().getFullYear())</script> triplogic.ai — All rights reserved
     </p>
   </div>
 </footer>
 
+<script>
+  // Simple header scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
 </body>
 </html>
