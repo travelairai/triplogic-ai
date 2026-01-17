@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="TripLogic.ai — AI intelligence for trip planning, routing, and travel optimization. Privately owned. Strategic partnerships and acquisition discussions considered." />
+  <meta name="robots" content="index,follow" />
+  <title>TripLogic.ai — Travel Intelligence & Optimization</title>
+
+  <style>
+    :root{
+      --bg:#07090f;
+      --card:#0d1220;
+      --text:#e9eefc;
+      --muted:#a9b5d6;
+      --line:rgba(255,255,255,.10);
+      --glow:rgba(128,170,255,.25);
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      color:var(--text);
+      background:
+        radial-gradient(900px 500px at 15% 15%, rgba(120,160,255,.18), transparent 60%),
+        radial-gradient(800px 500px at 85% 25%, rgba(160,255,220,.10), transparent 60%),
+        radial-gradient(800px 600px at 50% 90%, rgba(255,170,220,.08), transparent 65%),
+        var(--bg);
+      min-height:100vh;
+    }
+    .wrap{
+      max-width:980px;
+      margin:0 auto;
+      padding:56px 18px 64px;
+    }
+    header{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:16px;
+      margin-bottom:28px;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      letter-spacing:.2px;
+      font-weight:700;
+      font-size:18px;
+    }
+    .dot{
+      width:10px;height:10px;border-radius:99px;
+      background:linear-gradient(135deg,#7aa7ff,#7fffd4);
+      box-shadow:0 0 22px rgba(122,167,255,.55);
+    }
+    .pill{
+      font-size:12px;
+      color:var(--muted);
+      border:1px solid var(--line);
+      padding:8px 12px;
+      border-radius:999px;
+      backdrop-filter: blur(10px);
+      background: rgba(13,18,32,.45);
+      white-space:nowrap;
+    }
+    .hero{
+      border:1px solid var(--line);
+      border-radius:18px;
+      background: rgba(13,18,32,.55);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.03), 0 20px 60px rgba(0,0,0,.35);
+      padding:28px;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute;
+      inset:-2px;
+      background: radial-gradient(600px 200px at 20% 10%, rgba(122,167,255,.20), transparent 55%);
+      pointer-events:none;
+    }
+    h1{
+      margin:0 0 10px 0;
+      font-size:42px;
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .sub{
+      margin:0 0 18px 0;
+      font-size:16px;
+      line-height:1.55;
+      color:var(--muted);
+      max-width:70ch;
+    }
+    .ctaRow{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:18px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      padding:12px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      text-decoration:none;
+      color:var(--text);
+      background: rgba(255,255,255,.03);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .btn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.06);
+      border-color: rgba(255,255,255,.18);
+    }
+    .btnPrimary{
+      background: linear-gradient(135deg, rgba(122,167,255,.22), rgba(127,255,212,.10));
+      border-color: rgba(122,167,255,.25);
+      box-shadow: 0 0 0 4px rgba(122,167,255,.08);
+    }
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap:14px;
+      margin-top:16px;
+    }
+    .card{
+      grid-column: span 4;
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(13,18,32,.45);
+      padding:16px;
+      min-height:128px;
+    }
+    .card h3{
+      margin:0 0 8px 0;
+      font-size:14px;
+      letter-spacing:.2px;
+    }
+    .card p{
+      margin:0;
+      color:var(--muted);
+      font-size:13px;
+      line-height:1.55;
+    }
+    .split{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:14px;
+      margin-top:14px;
+    }
+    .panel{
+      border:1px solid var(--line);
+      border-radius:16px;
+      background: rgba(13,18,32,.45);
+      padding:16px;
+    }
+    .panel h2{
+      margin:0 0 8px 0;
+      font-size:16px;
+    }
+    .panel ul{
+      margin:10px 0 0 18px;
+      padding:0;
+      color:var(--muted);
+      line-height:1.65;
+      font-size:13px;
+    }
+    footer{
+      margin-top:18px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+      color:var(--muted);
+      font-size:12px;
+      line-height:1.55;
+    }
+    .legal{
+      margin-top:10px;
+      padding:12px;
+      border:1px dashed rgba(255,255,255,.18);
+      border-radius:12px;
+      background: rgba(0,0,0,.18);
+    }
+    @media (max-width: 860px){
+      h1{font-size:34px}
+      .card{grid-column: span 6}
+      .split{grid-template-columns: 1fr}
+    }
+    @media (max-width: 520px){
+      .card{grid-column: span 12}
+      header{flex-direction:column; align-items:flex-start}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <span class="dot"></span>
+        <span>TripLogic.ai</span>
+      </div>
+      <div class="pill">Privately owned • Strategic inquiries only</div>
+    </header>
+
+    <main class="hero">
+      <h1>Travel intelligence,<br/>built on logic.</h1>
+      <p class="sub">
+        TripLogic.ai is positioned as the intelligence layer for trip planning, routing, and travel optimization —
+        designed to power next-generation consumer experiences and enterprise travel systems.
+      </p>
+
+      <div class="ctaRow">
+        <!-- Replace the email with your preferred inbox -->
+        <a class="btn btnPrimary" href="mailto:austinweiss8@gmail.com?subject=TripLogic.ai%20-%20Partnership%20or%20Acquisition%20Inquiry">
+          Discuss partnership or acquisition →
+        </a>
+        <a class="btn" href="#ownership">Ownership & rights</a>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+          <h3>Itinerary reasoning</h3>
+          <p>Turn preferences into decision-ready plans: pacing, constraints, and tradeoffs — not just suggestions.</p>
+        </div>
+        <div class="card">
+          <h3>Routing & optimization</h3>
+          <p>Smarter sequences, fewer dead-legs, and better use of time across multi-city trips.</p>
+        </div>
+        <div class="card">
+          <h3>Platform-ready</h3>
+          <p>Built to fit consumer apps, corporate travel, and API-driven integrations.</p>
+        </div>
+      </div>
+
+      <div class="split">
+        <section class="panel">
+          <h2>Possible directions</h2>
+          <ul>
+            <li>AI itinerary engine for consumers</li>
+            <li>Cost-aware travel optimization for teams</li>
+            <li>Routing logic for multi-stop travel</li>
+            <li>White-label planning assistant for travel platforms</li>
+            <li>API layer for partners and integrations</li>
+          </ul>
+        </section>
+
+        <section class="panel">
+          <h2>Contact</h2>
+          <p class="sub" style="margin:0">
+            For serious partnership or acquisition discussions, reach out directly:
+          </p>
+          <div class="ctaRow" style="margin-top:12px">
+            <a class="btn" href="mailto:austinweiss8@gmail.com?subject=TripLogic.ai%20Inquiry">Email</a>
+          </div>
+        </section>
+      </div>
+
+      <footer id="ownership">
+        <div class="legal">
+          <strong>Ownership & Rights Reserved</strong><br/>
+          TripLogic.ai is a privately owned digital asset. All branding, naming rights, and associated intellectual
+          property are reserved. TripLogic.ai is not offered for sale through public marketplaces. Strategic
+          partnerships and acquisition discussions may be considered with verified parties.
+        </div>
+
+        <div style="margin-top:10px">
+          © <span id="y"></span> TripLogic.ai • All Rights Reserved.
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
