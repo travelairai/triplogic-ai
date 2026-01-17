@@ -1,196 +1,140 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>triplogic.ai — Intelligent Travel, Perfected</title>
-  <meta name="description" content="triplogic.ai is the upcoming AI travel intelligence platform that turns your vision into flawless, logical journeys. Join the founding waitlist."/>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #0a0f1c;
-      --surface: #111827;
-      --text: #f9fafb;
-      --muted: #d1d5db;
-      --gold: #d4af37;
-      --gold-dark: #b8972e;
-      --radius: 24px;
-      --transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>triplogic.ai — Trips, Made Logical</title>
+<meta name="description" content="triplogic.ai is the AI travel planner that turns your ideas into logical, optimized journeys. Join the waitlist for early access."/>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #0a0f1c;
+  --surface: #111827;
+  --text: #f9fafb;
+  --muted: #9ca3af;
+  --accent: #f59e0b;
+  --accent-light: #fbbf24;
+  --radius: 20px;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html, body { height:100%; }
+body {
+  font-family: 'Inter', system-ui, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  font-size: 16px;
+}
+a { color:inherit; text-decoration:none; }
+.wrap { max-width:1280px; margin:0 auto; padding:0 5vw; }
 
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
+header {
+  position: fixed;
+  inset: 0 0 auto 0;
+  z-index: 1000;
+  background: rgba(10,15,28,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(245,158,11,0.08);
+}
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+}
+.logo {
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
 
-    h1, h2, h3 {
-      font-family: 'Playfair Display', serif;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-    }
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(to bottom, #0a0f1c, #111827);
+}
+.hero-content {
+  max-width: 900px;
+}
+h1 {
+  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-weight: 800;
+  line-height: 0.95;
+  margin-bottom: 1.5rem;
+}
+.highlight { color: var(--accent); }
+.subtitle {
+  font-size: clamp(1.25rem, 4vw, 1.5rem);
+  color: var(--muted);
+  max-width: 720px;
+  margin: 0 auto 3rem;
+}
+.btn-group {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.btn {
+  font-size: 1.125rem;
+  padding: 1rem 2.5rem;
+  border-radius: 9999px;
+  transition: all 0.4s ease;
+}
+.btn-primary {
+  background: var(--accent);
+  color: #000;
+}
+.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(245,158,11,0.3); }
+.btn-outline {
+  border: 1.5px solid var(--muted);
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-    .wrap { max-width: 1480px; margin: 0 auto; padding: 0 6vw; }
+.perks {
+  margin-top: 3rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  justify-content: center;
+}
+.perk {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 9999px;
+  padding: 0.75rem 1.5rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+}
 
-    header {
-      position: fixed;
-      inset: 0 0 auto 0;
-      z-index: 1000;
-      background: rgba(10,15,28,0.8);
-      backdrop-filter: blur(20px);
-      border-bottom: 1px solid rgba(212,175,55,0.08);
-      transition: var(--transition);
-    }
+footer {
+  padding: 100px 0 60px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
 
-    header.scrolled {
-      background: rgba(10,15,28,0.95);
-      box-shadow: 0 8px 40px rgba(0,0,0,0.35);
-    }
-
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2.5rem 0;
-    }
-
-    .logo {
-      font-size: 3.2rem;
-      font-weight: 700;
-      letter-spacing: -1.5px;
-      background: linear-gradient(90deg, var(--gold), var(--gold-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 3.5rem;
-      font-size: 1.15rem;
-      font-weight: 500;
-    }
-
-    .nav-links a:hover { color: var(--gold); }
-
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-      background: linear-gradient(to bottom, #0a0f1c, #111827);
-    }
-
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 1100px;
-    }
-
-    h1 {
-      font-size: clamp(5rem, 12vw, 11rem);
-      font-weight: 700;
-      line-height: 0.9;
-      margin-bottom: 2rem;
-      letter-spacing: -4px;
-    }
-
-    .highlight {
-      background: linear-gradient(90deg, var(--gold), var(--gold-dark));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
-    .subtitle {
-      font-size: clamp(1.5rem, 3.5vw, 2.25rem);
-      color: var(--muted);
-      max-width: 900px;
-      margin: 0 auto 4rem;
-      font-weight: 300;
-    }
-
-    .btn-group {
-      display: flex;
-      gap: 2.5rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      font-size: 1.4rem;
-      padding: 1.4rem 4rem;
-      border-radius: 9999px;
-      transition: var(--transition);
-      font-weight: 600;
-    }
-
-    .btn-primary {
-      background: var(--gold);
-      color: #0a0f1c;
-      box-shadow: 0 0 50px var(--glow);
-    }
-
-    .btn-primary:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 80px var(--glow);
-    }
-
-    .btn-outline {
-      background: transparent;
-      border: 2px solid var(--gold);
-      color: var(--gold);
-    }
-
-    .btn-outline:hover {
-      background: rgba(212,175,55,0.1);
-    }
-
-    .perks {
-      margin-top: 5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.8rem;
-      justify-content: center;
-    }
-
-    .perk {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(212,175,55,0.12);
-      border-radius: 9999px;
-      padding: 1rem 2rem;
-      font-size: 1rem;
-      color: var(--muted);
-    }
-
-    footer {
-      padding: 140px 0 80px;
-      text-align: center;
-      color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.06);
-    }
-
-    @media (max-width: 768px) {
-      h1 { font-size: 6rem; }
-      .subtitle { font-size: 1.5rem; }
-      .btn { padding: 1.1rem 3rem; font-size: 1.2rem; }
-      .nav-links { gap: 2rem; font-size: 1rem; }
-    }
-  </style>
+@media (max-width: 768px) {
+  h1 { font-size: 4rem; }
+  .subtitle { font-size: 1.25rem; }
+  .btn { padding: 0.9rem 2rem; font-size: 1rem; }
+}
+</style>
 </head>
 <body>
 
 <header id="header">
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <div class="nav-links">
+    <div style="display:flex;gap:2.5rem;align-items:center;font-weight:500;">
       <a href="#waitlist">Join Waitlist</a>
     </div>
   </div>
@@ -212,29 +156,12 @@
       </div>
 
       <div class="perks">
-        <div class="perk">First access at launch</div>
-        <div class="perk">Exclusive beta experience</div>
-        <div class="perk">Shape the roadmap</div>
+        <div class="perk">Early access at launch</div>
+        <div class="perk">Exclusive beta invites</div>
+        <div class="perk">Influence the roadmap</div>
         <div class="perk">Founding member status</div>
       </div>
     </div>
-  </div>
-</section>
-
-<section id="waitlist" style="background:var(--surface);">
-  <div class="wrap" style="max-width:720px;text-align:center;">
-    <h2 style="font-size:3.5rem;margin-bottom:1.5rem;">Be Among the First</h2>
-    <p style="font-size:1.35rem;color:var(--muted);margin-bottom:3rem;">
-      triplogic.ai is in development. Secure your place before we open to the public.
-    </p>
-
-    <form action="https://formspree.io/f/xnjjngql" method="POST">
-      <input type="email" name="_replyto" placeholder="Your best email" required
-             style="width:100%;max-width:480px;padding:1.25rem 1.5rem;font-size:1.25rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:var(--text);margin-bottom:1.5rem;"/>
-      <button type="submit" class="btn btn-primary" style="font-size:1.35rem;padding:1.25rem 3rem;width:100%;max-width:480px;">
-        Claim Your Spot →
-      </button>
-    </form>
   </div>
 </section>
 
@@ -248,7 +175,6 @@
 </footer>
 
 <script>
-// Header scroll effect
 window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
 });
