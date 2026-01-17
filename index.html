@@ -1,25 +1,24 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>triplogic.ai — Trips, Made Logical</title>
-  <meta name="description" content="One prompt. Your perfect trip. AI that plans with pure logic — no chaos, no guesswork, just optimized journeys. Join the waitlist."/>
+  <title>triplogic.ai — Intelligent Travel, Perfected</title>
+  <meta name="description" content="One prompt. Your perfect trip. AI that thinks logically, plans brilliantly, and removes all the friction from travel."/>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg: #0a0f1e;
-      --surface: #111827;
-      --text: #f9fafb;
-      --muted: #9ca3af;
-      --accent: #f59e0b;       /* sunset gold/orange */
-      --accent-light: #fbbf24;
+      --bg: #030712;
+      --surface: #0f172a;
+      --text: #f8fafc;
+      --muted: #cbd5e1;
+      --accent: #f59e0b;
+      --accent-glow: rgba(245, 158, 11, 0.25);
       --sky: #60a5fa;
-      --glow: rgba(245,158,11,0.25);
       --radius: 20px;
-      --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
 
     * { margin:0; padding:0; box-sizing:border-box; }
@@ -31,43 +30,37 @@
       overflow-x: hidden;
     }
 
-    a { color:inherit; text-decoration:none; }
-
-    .wrap {
-      max-width: 1400px;
-      margin: 0 auto;
-      padding: 0 5vw;
+    h1, h2, h3 {
+      font-family: 'Space Grotesk', system-ui, sans-serif;
+      font-weight: 700;
     }
+
+    .wrap { max-width: 1440px; margin: 0 auto; padding: 0 5vw; }
 
     header {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      inset: 0 0 auto 0;
       z-index: 1000;
-      background: rgba(10,15,30,0.75);
+      background: rgba(3,7,18,0.75);
       backdrop-filter: blur(16px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
       transition: var(--transition);
     }
 
-    header.scrolled {
-      background: rgba(10,15,30,0.92);
-      box-shadow: 0 4px 30px rgba(0,0,0,0.3);
-    }
+    header.scrolled { background: rgba(3,7,18,0.95); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
 
-    nav .wrap {
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.5rem 0;
+      padding: 1.75rem 0;
     }
 
     .logo {
-      font-size: 2.25rem;
+      font-size: 2.5rem;
       font-weight: 900;
-      letter-spacing: -1px;
-      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      letter-spacing: -2px;
+      background: linear-gradient(90deg, var(--accent), #fbbf24);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
@@ -75,9 +68,9 @@
 
     .nav-links {
       display: flex;
-      gap: 2.5rem;
+      gap: 3rem;
       font-weight: 500;
-      font-size: 1.05rem;
+      font-size: 1.1rem;
     }
 
     .nav-links a:hover { color: var(--accent); }
@@ -90,67 +83,62 @@
       text-align: center;
       position: relative;
       overflow: hidden;
-      background: linear-gradient(135deg, #0a0f1e 0%, #111827 100%);
-    }
-
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 20% 30%, rgba(245,158,11,0.12) 0%, transparent 50%),
-                  radial-gradient(circle at 80% 70%, rgba(245,158,11,0.08) 0%, transparent 60%);
-      opacity: 0.7;
-      pointer-events: none;
+      background: radial-gradient(circle at 20% 30%, rgba(245,158,11,0.12) 0%, transparent 60%),
+                  radial-gradient(circle at 80% 70%, rgba(245,158,11,0.08) 0%, transparent 70%),
+                  linear-gradient(to bottom, #0a0f1e, #111827);
     }
 
     .hero-content {
       position: relative;
       z-index: 2;
-      max-width: 900px;
+      max-width: 1000px;
     }
 
     h1 {
-      font-size: clamp(3.5rem, 10vw, 7rem);
+      font-size: clamp(4.5rem, 12vw, 9.5rem);
       font-weight: 900;
-      line-height: 0.95;
+      line-height: 0.92;
       margin-bottom: 1.5rem;
-      letter-spacing: -2px;
+      letter-spacing: -3px;
     }
 
     .highlight {
       background: linear-gradient(90deg, var(--accent), var(--accent-light));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      background-clip: text;
     }
 
     .subtitle {
-      font-size: 1.5rem;
+      font-size: clamp(1.4rem, 3vw, 2rem);
       color: var(--muted);
-      max-width: 680px;
-      margin: 0 auto 3rem;
+      max-width: 800px;
+      margin: 0 auto 3.5rem;
+      font-weight: 400;
     }
 
     .btn-group {
       display: flex;
-      gap: 1.5rem;
+      gap: 2rem;
       justify-content: center;
       flex-wrap: wrap;
     }
 
     .btn {
-      font-size: 1.125rem;
-      padding: 1rem 2.5rem;
+      font-size: 1.3rem;
+      padding: 1.2rem 3.2rem;
+      border-radius: 9999px;
+      transition: var(--transition);
     }
 
-    .btn-outline {
-      background: transparent;
-      border: 1.5px solid var(--muted);
+    .btn-primary {
+      background: linear-gradient(90deg, var(--accent), var(--accent-light));
+      color: #000;
+      box-shadow: 0 0 40px var(--glow);
     }
 
-    .btn-outline:hover {
-      background: rgba(255,255,255,0.05);
-      border-color: var(--accent);
+    .btn-primary:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px var(--glow);
     }
 
     .perks {
@@ -164,23 +152,23 @@
     .perk {
       background: rgba(255,255,255,0.03);
       border: 1px solid rgba(255,255,255,0.06);
-      border-radius: 12px;
-      padding: 1rem 1.5rem;
+      border-radius: 9999px;
+      padding: 0.8rem 1.6rem;
       font-size: 0.95rem;
       color: var(--muted);
     }
 
     footer {
-      padding: 80px 0 40px;
+      padding: 120px 0 60px;
       text-align: center;
       color: var(--muted);
       border-top: 1px solid rgba(255,255,255,0.06);
     }
 
     @media (max-width: 768px) {
-      h1 { font-size: 4rem; }
-      .subtitle { font-size: 1.25rem; }
-      .btn { padding: 0.9rem 2rem; font-size: 1rem; }
+      h1 { font-size: 5.5rem; }
+      .subtitle { font-size: 1.35rem; }
+      .btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
     }
   </style>
 </head>
@@ -189,7 +177,7 @@
 <header id="header">
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <div style="display:flex;gap:2.5rem;align-items:center;font-weight:500;">
+    <div class="nav-links">
       <a href="#waitlist">Join Waitlist</a>
     </div>
   </div>
@@ -197,40 +185,41 @@
 
 <section class="hero">
   <div class="wrap">
-    <h1>
-      Trips,<br/>
-      <span class="highlight">made logical.</span>
-    </h1>
-    <p class="subtitle">
-      One prompt. Your perfect itinerary. AI that plans with pure reason — no chaos, no guesswork, just optimized journeys.
-    </p>
+    <div class="hero-content">
+      <h1>
+        Trips,<br/>
+        <span class="highlight">made logical.</span>
+      </h1>
+      <p class="subtitle">
+        One prompt. Your perfect itinerary. AI that thinks logically — removes chaos, maximizes joy.
+      </p>
 
-    <div class="btn-group">
-      <a href="#waitlist" class="btn btn-primary">Join the Founding Waitlist</a>
-      <a href="#features" class="btn btn-outline">See the Vision</a>
-    </div>
+      <div class="btn-group">
+        <a href="#waitlist" class="btn btn-primary">Join the Founding Waitlist</a>
+      </div>
 
-    <div class="perks">
-      <div class="perk">Early access when we launch</div>
-      <div class="perk">Exclusive beta invites</div>
-      <div class="perk">Influence the roadmap</div>
-      <div class="perk">Founding member status</div>
+      <div class="perks">
+        <div class="perk">First access at launch</div>
+        <div class="perk">Exclusive beta invites</div>
+        <div class="perk">Influence the roadmap</div>
+        <div class="perk">Founding member status</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="waitlist" style="background:var(--surface);">
   <div class="wrap" style="max-width:720px;text-align:center;">
-    <h2 style="font-size:3rem;margin-bottom:1.5rem;">Be First. Travel Smarter.</h2>
-    <p style="font-size:1.25rem;color:var(--muted);margin-bottom:3rem;">
-      triplogic.ai is in development. Sign up to get notified the moment we open early access.
+    <h2 style="font-size:3.5rem;margin-bottom:1.5rem;">Be First. Travel Smarter.</h2>
+    <p style="font-size:1.35rem;color:var(--muted);margin-bottom:3rem;">
+      triplogic.ai is in development. Secure your spot before we open to the public.
     </p>
 
     <form action="https://formspree.io/f/xnjjngql" method="POST">
-      <input type="email" name="email" placeholder="Your email address" required
-             style="width:100%;max-width:480px;padding:18px 24px;font-size:1.125rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:var(--text);margin-bottom:1.5rem;"/>
-      <button type="submit" class="btn btn-primary" style="font-size:1.25rem;padding:18px 48px;width:100%;max-width:480px;">
-        Join the Waitlist →
+      <input type="email" name="_replyto" placeholder="Your best email" required
+             style="width:100%;max-width:480px;padding:1.25rem 1.5rem;font-size:1.25rem;border-radius:12px;border:1px solid rgba(255,255,255,0.1);background:rgba(255,255,255,0.03);color:var(--text);margin-bottom:1.5rem;"/>
+      <button type="submit" class="btn btn-primary" style="font-size:1.35rem;padding:1.25rem 3rem;width:100%;max-width:480px;">
+        Claim Your Spot →
       </button>
     </form>
   </div>
@@ -246,10 +235,10 @@
 </footer>
 
 <script>
-  // Simple header scroll effect
-  window.addEventListener('scroll', () => {
-    document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
-  });
+// Header scroll effect
+window.addEventListener('scroll', () => {
+  document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
+});
 </script>
 </body>
 </html>
