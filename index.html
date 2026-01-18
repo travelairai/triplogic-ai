@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -158,7 +158,6 @@ nav {
   border-radius: var(--radius);
   padding: 40px 32px;
   transition: all .3s ease;
-  position: relative;
 }
 .about-card:hover {
   transform: translateY(-8px);
@@ -169,11 +168,6 @@ nav {
   font-size: 48px;
   margin-bottom: 24px;
   color: var(--accent);
-  transition: var(--transition);
-}
-.about-card:hover .about-icon {
-  transform: scale(1.15);
-  filter: drop-shadow(0 0 10px var(--accent));
 }
 
 .cta {
@@ -188,6 +182,10 @@ footer {
   text-align: center;
   color: var(--muted);
   border-top: 1px solid rgba(255,255,255,0.06);
+}
+footer .logo {
+  font-size: 32px;
+  margin-bottom: 16px;
 }
 
 @media (max-width:768px) {
@@ -284,12 +282,16 @@ footer {
   </div>
 </section>
 
-<!-- FOOTER -->
+<!-- FOOTER with your exact phrasing -->
 <footer>
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
     <p style="margin-top:16px;font-size:14px;">
       © <script>document.write(new Date().getFullYear())</script> triplogic.ai — All rights reserved
+    </p>
+    <p style="margin-top:12px;font-size:13px;opacity:0.8;">
+      triplogic.ai is a privately owned brand and digital asset.<br>
+      Strategic partnerships or acquisition discussions may be considered.
     </p>
   </div>
 </footer>
