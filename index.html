@@ -23,6 +23,7 @@ body {
   color: var(--text);
   line-height: 1.7;
   font-size: 16px;
+  overflow-x: hidden;
 }
 a { color:inherit; text-decoration:none; }
 .wrap { max-width:1280px; margin:0 auto; padding:0 5vw; }
@@ -53,7 +54,7 @@ nav {
   -webkit-text-fill-color: transparent;
 }
 
-/* HERO with holographic data streams background */
+/* HERO with animated holographic flight paths */
 .hero {
   text-align: center;
   padding: 160px 0 120px;
@@ -78,20 +79,20 @@ nav {
   position: absolute;
   inset: 0;
   background-image: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10 50 Q 50 10, 90 50 Q 50 90, 10 50' fill='none' stroke='%23f59e0b' stroke-width='1.2' opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23f59e0b' opacity='0.5'/%3E%3C/svg%3E");
-  background-size: 250px 250px;
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400' viewBox='0 0 400 400'%3E%3Cpath d='M50 200 Q 200 50, 350 200 Q 200 350, 50 200' fill='none' stroke='%23f59e0b' stroke-width='2' opacity='0.15'/%3E%3Cpath d='M100 150 Q 200 50, 300 150' fill='none' stroke='%23fbbf24' stroke-width='1.5' opacity='0.12'/%3E%3Ccircle cx='200' cy='200' r='8' fill='%23f59e0b' opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 600px 600px;
   opacity: 0.45;
   pointer-events: none;
   z-index: 0;
-  animation: flow 25s linear infinite;
+  animation: flow 40s linear infinite;
 }
 .hero > * {
   position: relative;
   z-index: 1;
 }
 @keyframes flow {
-  0% { background-position: 0 0; }
-  100% { background-position: 250px 250px; }
+  0% { background-position: 0 0; transform: translate(0, 0); }
+  100% { background-position: 600px 600px; transform: translate(-600px, -600px); }
 }
 .hero h1 {
   font-size: clamp(3rem, 7vw, 5.5rem);
@@ -206,7 +207,7 @@ footer {
   </div>
 </header>
 
-<!-- HERO -->
+<!-- HERO with animated holographic data streams background -->
 <section class="hero">
   <div class="wrap">
     <h1>
