@@ -5,15 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>triplogic.ai — Trips, Made Logical</title>
 <meta name="description" content="triplogic.ai turns your travel ideas into perfectly logical, optimized journeys. One prompt. Zero stress. Join the waitlist.">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg: #0a0f1c;
-  --surface: #111827;
-  --text: #f9fafb;
-  --muted: #9ca3af;
+  --bg: #0f172a;
+  --surface: #1e293b;
+  --text: #f8fafc;
+  --muted: #cbd5e1;
   --accent: #f59e0b;
   --accent-light: #fbbf24;
-  --radius: 20px;
+  --radius: 24px;
   --transition: all 0.4s ease;
 }
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -22,178 +23,143 @@ body {
   background: var(--bg);
   color: var(--text);
   line-height: 1.7;
-  font-size: 16px;
 }
 a { color:inherit; text-decoration:none; }
 .wrap { max-width:1280px; margin:0 auto; padding:0 5vw; }
-
 header {
   position: fixed;
   inset: 0 0 auto 0;
   z-index: 1000;
-  background: rgba(10,15,28,0.85);
+  background: rgba(15,23,42,0.88);
   backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(245,158,11,0.08);
+  border-bottom: 1px solid rgba(245,158,11,0.1);
   transition: var(--transition);
 }
-header.scrolled { background: rgba(10,15,28,0.95); box-shadow: 0 8px 32px rgba(0,0,0,0.3); }
-
+header.scrolled { background: rgba(15,23,42,0.98); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.5rem 0;
+  padding: 1.8rem 0;
 }
 .logo {
-  font-size: clamp(2rem, 5vw, 2.5rem);
+  font-size: clamp(2.2rem, 5vw, 2.8rem);
   font-weight: 800;
   letter-spacing: -1px;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-
-/* HERO with holographic data streams background */
+/* New Luxury Sunset Hero */
 .hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
   text-align: center;
-  padding: 160px 0 120px;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(135deg, #0a0f1c 0%, #111827 100%);
+  background: 
+    linear-gradient(rgba(15,23,42,0.55), rgba(30,41,59,0.75)),
+    url('https://your-hosted-image-url-here.jpg') center/cover no-repeat fixed;  /* ← Paste your chosen luxury sunset image URL here */
+  background-blend-mode: multiply;
 }
 .hero::before {
   content: "";
   position: absolute;
   inset: 0;
-  background: 
-    radial-gradient(circle at 20% 30%, rgba(245,158,11,.15) 0%, transparent 50%),
-    radial-gradient(circle at 80% 70%, rgba(245,158,11,.10) 0%, transparent 60%),
-    linear-gradient(45deg, transparent 40%, rgba(245,158,11,.06) 50%, transparent 60%);
-  opacity: 0.75;
+  background: radial-gradient(circle at 50% 30%, rgba(245,158,11,0.12) 0%, transparent 70%);
   pointer-events: none;
   z-index: 0;
+  opacity: 0.7;
 }
-.hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background-image: 
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 100 100'%3E%3Cpath d='M10 50 Q 50 10, 90 50 Q 50 90, 10 50' fill='none' stroke='%23f59e0b' stroke-width='1.2' opacity='0.2'/%3E%3Ccircle cx='50' cy='50' r='5' fill='%23f59e0b' opacity='0.5'/%3E%3C/svg%3E");
-  background-size: 250px 250px;
-  opacity: 0.45;
-  pointer-events: none;
-  z-index: 0;
-  animation: flow 25s linear infinite;
-}
-.hero > * {
-  position: relative;
-  z-index: 1;
-}
-@keyframes flow {
-  0% { background-position: 0 0; }
-  100% { background-position: 250px 250px; }
-}
+.hero > * { position: relative; z-index: 2; }
 .hero h1 {
-  font-size: clamp(3rem, 7vw, 5.5rem);
+  font-size: clamp(3.5rem, 8vw, 6rem);
   font-weight: 800;
   line-height: 0.95;
   margin-bottom: 1.5rem;
   letter-spacing: -1.5px;
 }
-.hero .highlight { color: var(--accent); }
+.hero .highlight { color: var(--accent-light); }
 .hero p {
-  font-size: 1.5rem;
-  max-width: 720px;
-  margin: 0 auto 3rem;
+  font-size: 1.6rem;
+  max-width: 760px;
+  margin: 0 auto 3.5rem;
   color: var(--muted);
 }
-.hero .btn-group {
+.btn-group {
   display: flex;
   gap: 1.5rem;
   justify-content: center;
   flex-wrap: wrap;
 }
 .btn {
-  font-size: 1.125rem;
-  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  padding: 1.1rem 3rem;
   border-radius: 9999px;
   transition: var(--transition);
 }
 .btn-primary {
-  background: var(--accent);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   color: #000;
 }
-.btn-primary:hover { transform: scale(1.05); box-shadow: 0 0 40px rgba(245,158,11,0.3); }
+.btn-primary:hover { transform: scale(1.06); box-shadow: 0 0 50px rgba(245,158,11,0.4); }
 .btn-outline {
-  border: 1.5px solid var(--muted);
+  border: 2px solid var(--muted);
 }
-.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
-
+.btn-outline:hover { border-color: var(--accent-light); color: var(--accent-light); }
 .perks {
-  margin-top: 3rem;
+  margin-top: 3.5rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
   justify-content: center;
 }
 .perk {
-  background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
   border-radius: 9999px;
-  padding: 0.75rem 1.5rem;
-  font-size: 0.95rem;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
   color: var(--muted);
 }
-
-.about { background: var(--surface); }
+.about { background: var(--surface); padding: 120px 0; }
+.about h2 { text-align:center; font-size:3.2rem; margin-bottom:3rem; }
 .about-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 32px;
-  margin-top: 48px;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
 }
 .about-card {
-  background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.08);
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
-  padding: 40px 32px;
-  transition: all .3s ease;
+  padding: 3rem 2.5rem;
+  transition: var(--transition);
 }
 .about-card:hover {
-  transform: translateY(-8px);
-  border-color: var(--accent);
-  box-shadow: 0 16px 48px rgba(245,158,11,.12);
+  transform: translateY(-10px);
+  border-color: var(--accent-light);
+  box-shadow: 0 20px 60px rgba(245,158,11,.15);
 }
-.about-icon {
-  font-size: 48px;
-  margin-bottom: 24px;
-  color: var(--accent);
-}
-
+.about-icon { font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--accent); }
 .cta {
   text-align: center;
   background: linear-gradient(135deg, #13203a, #0a1421);
+  padding: 120px 0;
 }
-.cta h2 { font-size: 3rem; margin-bottom: 1.5rem; }
-.cta p { font-size: 1.25rem; color: var(--muted); max-width: 720px; margin: 0 auto 3rem; }
-
+.cta h2 { font-size: 3.2rem; margin-bottom: 1.5rem; }
 footer {
   padding: 100px 0 60px;
   text-align: center;
   color: var(--muted);
-  border-top: 1px solid rgba(255,255,255,0.06);
+  border-top: 1px solid rgba(255,255,255,0.08);
 }
-footer .logo {
-  font-size: 32px;
-  margin-bottom: 16px;
-}
-
 @media (max-width:768px) {
-  section { padding: 80px 0; }
-  .hero { padding: 120px 0 80px; }
-  h1 { font-size: 4rem; }
-  .subtitle { font-size: 1.25rem; }
-  .btn { padding: 0.9rem 2rem; font-size: 1rem; }
+  .hero { min-height: 90vh; padding: 100px 0; }
+  h1 { font-size: 3.8rem; }
+  .btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
 }
 </style>
 </head>
@@ -203,28 +169,26 @@ footer .logo {
 <header id="header">
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <div style="display:flex;gap:2.5rem;align-items:center;font-weight:500;">
+    <div style="display:flex;gap:2.5rem;align-items:center;font-weight:600;">
       <a href="#about">About</a>
       <a href="#cta">Join Waitlist</a>
     </div>
   </div>
 </header>
 
-<!-- HERO with holographic data streams background -->
+<!-- HERO -->
 <section class="hero">
   <div class="wrap">
     <h1>
       Trips,<br/>
       <span class="highlight">made logical.</span>
     </h1>
-    <p class="subtitle">
-      One prompt. Your perfect journey. AI that plans with precision, elegance, and flawless logic.
+    <p>
+      One prompt. Your perfect journey. AI that plans with precision, elegance, and flawless logic — for the trips that matter most.
     </p>
-
     <div class="btn-group">
       <a href="#cta" class="btn btn-primary">Join the Founding Waitlist</a>
     </div>
-
     <div class="perks">
       <div class="perk">Early access at launch</div>
       <div class="perk">Exclusive beta invites</div>
@@ -234,62 +198,56 @@ footer .logo {
   </div>
 </section>
 
-<!-- ABOUT / WHAT IT IS -->
+<!-- ABOUT -->
 <section id="about" class="about">
   <div class="wrap">
-    <h2 style="text-align:center;font-size:3rem;margin-bottom:3rem;">What is triplogic.ai?</h2>
-    <p style="max-width:880px;margin:0 auto 3rem;text-align:center;font-size:1.25rem;color:var(--muted);">
-      triplogic.ai is the next-generation AI travel planner that eliminates guesswork and delivers perfectly logical, optimized journeys.  
-      No more scrolling through tabs, no more bad trade-offs — just clear, intelligent plans tailored exactly to you.
+    <h2>What is triplogic.ai?</h2>
+    <p style="max-width:880px;margin:0 auto 3rem;text-align:center;font-size:1.3rem;color:var(--muted);">
+      The next-generation AI travel planner that removes guesswork and delivers perfectly optimized, luxurious journeys.
+      No tabs, no compromises — just clear, intelligent plans made for your family’s dream escapes.
     </p>
-
     <div class="about-grid">
       <div class="about-card">
         <div class="about-icon">🧠</div>
         <h3>One-Prompt Planning</h3>
-        <p>Tell us your vision — budget, pace, interests, dates — and get a complete, logical itinerary in seconds.</p>
+        <p>Share your vision — budget, pace, family needs — get a complete, logical itinerary instantly.</p>
       </div>
       <div class="about-card">
         <div class="about-icon">⚖️</div>
         <h3>Transparent Trade-offs</h3>
-        <p>See crystal-clear comparisons of cost, time, comfort, and quality — so you always know why each choice is best.</p>
+        <p>Crystal-clear comparisons of cost, time, comfort & quality — always know the best choice.</p>
       </div>
       <div class="about-card">
         <div class="about-icon">🔄</div>
         <h3>Real-Time Adaptation</h3>
-        <p>Plans evolve automatically with flight changes, hotel deals, weather, events — always current, always optimal.</p>
+        <p>Plans update automatically for flights, deals, weather — always current, always optimal.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- CTA / Waitlist Form -->
+<!-- CTA -->
 <section id="cta" class="cta">
   <div class="wrap">
-    <h2>Travel with logic. Join early.</h2>
-    <p>triplogic.ai is in development. Be first to experience smarter, stress-free travel planning.</p>
-
-    <div class="security-note">
-      Your data is private — end-to-end encryption, no selling, no sharing.
-    </div>
-
-    <form action="https://formspree.io/f/xnjjngql" method="POST" style="max-width:600px;margin:48px auto;text-align:left;">
-      <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:16px;"/>
-      <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:16px;margin-bottom:16px;border-radius:12px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:16px;"/>
-      <textarea name="message" placeholder="What kind of trips do you want triplogic.ai to make logical?" rows="4" style="width:100%;padding:16px;border-radius:12px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:16px;resize:vertical;"></textarea>
-      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:24px;font-size:20px;padding:18px 0;">Join the Waitlist</button>
+    <h2>Travel with Logic. Start Your Journey Early.</h2>
+    <p>Be among the first to experience smarter, more luxurious family travel planning.</p>
+    <form action="https://formspree.io/f/xnjjngql" method="POST" style="max-width:620px;margin:3.5rem auto;text-align:left;">
+      <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:18px;margin-bottom:1.2rem;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;"/>
+      <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:18px;margin-bottom:1.2rem;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;"/>
+      <textarea name="message" placeholder="What kind of trips do you want triplogic.ai to make logical for you and your family?" rows="4" style="width:100%;padding:18px;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;resize:vertical;"></textarea>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:2rem;font-size:1.3rem;padding:20px 0;">Join the Waitlist</button>
     </form>
   </div>
 </section>
 
-<!-- FOOTER with your exact phrasing -->
+<!-- FOOTER -->
 <footer>
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <p style="margin-top:16px;font-size:14px;">
+    <p style="margin-top:1.5rem;font-size:14px;">
       © <script>document.write(new Date().getFullYear())</script> triplogic.ai — All rights reserved
     </p>
-    <p style="margin-top:12px;font-size:13px;opacity:0.8;">
+    <p style="margin-top:1rem;font-size:13px;opacity:0.8;">
       triplogic.ai is a privately owned brand and digital asset.<br>
       Strategic partnerships or acquisition discussions may be considered.
     </p>
@@ -297,7 +255,6 @@ footer .logo {
 </footer>
 
 <script>
-// Header scroll effect
 window.addEventListener('scroll', () => {
   document.getElementById('header').classList.toggle('scrolled', window.scrollY > 50);
 });
