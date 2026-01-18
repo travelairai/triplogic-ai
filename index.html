@@ -40,17 +40,17 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1.8rem 0;
+  padding: 1.2rem 0; /* Reduced padding for better balance */
 }
 .logo {
-  font-size: clamp(2.2rem, 5vw, 2.8rem);
+  font-size: clamp(1.8rem, 4.5vw, 2.4rem); /* Smaller & more balanced – fixes "too big" issue */
   font-weight: 800;
   letter-spacing: -1px;
   background: linear-gradient(90deg, var(--accent), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-/* New Luxury Sunset Hero */
+/* Luxury Sunset Hero – unchanged vibe, just refined sizing */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -60,7 +60,7 @@ nav {
   overflow: hidden;
   background: 
     linear-gradient(rgba(15,23,42,0.55), rgba(30,41,59,0.75)),
-    url('https://your-hosted-image-url-here.jpg') center/cover no-repeat fixed;  /* ← Paste your chosen luxury sunset image URL here */
+    url('https://your-hosted-image-url-here.jpg') center/cover no-repeat fixed;  /* Paste your luxury sunset image URL */
   background-blend-mode: multiply;
 }
 .hero::before {
@@ -74,17 +74,17 @@ nav {
 }
 .hero > * { position: relative; z-index: 2; }
 .hero h1 {
-  font-size: clamp(3.5rem, 8vw, 6rem);
+  font-size: clamp(3rem, 7vw, 5.2rem); /* Slightly smaller max for better fit */
   font-weight: 800;
   line-height: 0.95;
-  margin-bottom: 1.5rem;
-  letter-spacing: -1.5px;
+  margin-bottom: 1.2rem;
+  letter-spacing: -1.2px;
 }
 .hero .highlight { color: var(--accent-light); }
 .hero p {
-  font-size: 1.6rem;
+  font-size: 1.5rem;
   max-width: 760px;
-  margin: 0 auto 3.5rem;
+  margin: 0 auto 3rem;
   color: var(--muted);
 }
 .btn-group {
@@ -94,8 +94,8 @@ nav {
   flex-wrap: wrap;
 }
 .btn {
-  font-size: 1.2rem;
-  padding: 1.1rem 3rem;
+  font-size: 1.15rem;
+  padding: 1rem 2.8rem;
   border-radius: 9999px;
   transition: var(--transition);
 }
@@ -104,12 +104,8 @@ nav {
   color: #000;
 }
 .btn-primary:hover { transform: scale(1.06); box-shadow: 0 0 50px rgba(245,158,11,0.4); }
-.btn-outline {
-  border: 2px solid var(--muted);
-}
-.btn-outline:hover { border-color: var(--accent-light); color: var(--accent-light); }
 .perks {
-  margin-top: 3.5rem;
+  margin-top: 3rem;
   display: flex;
   flex-wrap: wrap;
   gap: 1.25rem;
@@ -120,22 +116,21 @@ nav {
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 9999px;
   padding: 0.8rem 1.8rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   color: var(--muted);
 }
-.about { background: var(--surface); padding: 120px 0; }
-.about h2 { text-align:center; font-size:3.2rem; margin-bottom:3rem; }
+.about { background: var(--surface); padding: 100px 0; }
+.about h2 { text-align:center; font-size:2.8rem; margin-bottom:2.5rem; }
 .about-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2.5rem;
-  margin-top: 3rem;
 }
 .about-card {
   background: rgba(255,255,255,.05);
   border: 1px solid rgba(255,255,255,0.1);
   border-radius: var(--radius);
-  padding: 3rem 2.5rem;
+  padding: 2.8rem 2.2rem;
   transition: var(--transition);
 }
 .about-card:hover {
@@ -143,23 +138,24 @@ nav {
   border-color: var(--accent-light);
   box-shadow: 0 20px 60px rgba(245,158,11,.15);
 }
-.about-icon { font-size: 3.5rem; margin-bottom: 1.5rem; color: var(--accent); }
+.about-icon { font-size: 3.2rem; margin-bottom: 1.2rem; color: var(--accent); }
 .cta {
   text-align: center;
   background: linear-gradient(135deg, #13203a, #0a1421);
-  padding: 120px 0;
+  padding: 100px 0;
 }
-.cta h2 { font-size: 3.2rem; margin-bottom: 1.5rem; }
+.cta h2 { font-size: 2.8rem; margin-bottom: 1.5rem; }
 footer {
-  padding: 100px 0 60px;
+  padding: 80px 0 50px;
   text-align: center;
   color: var(--muted);
   border-top: 1px solid rgba(255,255,255,0.08);
 }
 @media (max-width:768px) {
-  .hero { min-height: 90vh; padding: 100px 0; }
-  h1 { font-size: 3.8rem; }
-  .btn { padding: 1rem 2.5rem; font-size: 1.1rem; }
+  .hero { min-height: 90vh; padding: 100px 0 80px; }
+  .hero h1 { font-size: 3.2rem; }
+  .logo { font-size: clamp(1.8rem, 6vw, 2.2rem); } /* Mobile-friendly size */
+  nav { padding: 1rem 0; }
 }
 </style>
 </head>
@@ -169,7 +165,7 @@ footer {
 <header id="header">
   <div class="wrap">
     <div class="logo">triplogic.ai</div>
-    <div style="display:flex;gap:2.5rem;align-items:center;font-weight:600;">
+    <div style="display:flex;gap:2rem;align-items:center;font-weight:600;">
       <a href="#about">About</a>
       <a href="#cta">Join Waitlist</a>
     </div>
@@ -198,11 +194,11 @@ footer {
   </div>
 </section>
 
-<!-- ABOUT -->
+<!-- ABOUT / WHAT IT IS -->
 <section id="about" class="about">
   <div class="wrap">
     <h2>What is triplogic.ai?</h2>
-    <p style="max-width:880px;margin:0 auto 3rem;text-align:center;font-size:1.3rem;color:var(--muted);">
+    <p style="max-width:880px;margin:0 auto 2.5rem;text-align:center;font-size:1.25rem;color:var(--muted);">
       The next-generation AI travel planner that removes guesswork and delivers perfectly optimized, luxurious journeys.
       No tabs, no compromises — just clear, intelligent plans made for your family’s dream escapes.
     </p>
@@ -231,11 +227,11 @@ footer {
   <div class="wrap">
     <h2>Travel with Logic. Start Your Journey Early.</h2>
     <p>Be among the first to experience smarter, more luxurious family travel planning.</p>
-    <form action="https://formspree.io/f/xnjjngql" method="POST" style="max-width:620px;margin:3.5rem auto;text-align:left;">
-      <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:18px;margin-bottom:1.2rem;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;"/>
-      <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:18px;margin-bottom:1.2rem;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;"/>
-      <textarea name="message" placeholder="What kind of trips do you want triplogic.ai to make logical for you and your family?" rows="4" style="width:100%;padding:18px;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;resize:vertical;"></textarea>
-      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:2rem;font-size:1.3rem;padding:20px 0;">Join the Waitlist</button>
+    <form action="https://formspree.io/f/xnjjngql" method="POST" style="max-width:620px;margin:3rem auto;text-align:left;">
+      <input type="text" name="name" placeholder="Your name" required style="width:100%;padding:16px;margin-bottom:1rem;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;"/>
+      <input type="email" name="email" placeholder="Your email" required style="width:100%;padding:16px;margin-bottom:1rem;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;"/>
+      <textarea name="message" placeholder="What kind of trips do you want triplogic.ai to make logical for you and your family?" rows="4" style="width:100%;padding:16px;border-radius:16px;border:1px solid var(--muted);background:var(--surface);color:var(--text);font-size:1.1rem;resize:vertical;"></textarea>
+      <button type="submit" class="btn btn-primary" style="width:100%;margin-top:1.5rem;font-size:1.25rem;padding:18px 0;">Join the Waitlist</button>
     </form>
   </div>
 </section>
