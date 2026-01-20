@@ -6,47 +6,164 @@
   <title>TripLogic</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    /* Copy the exact <style> block from boardai.ai above to keep consistency */
-    /* Paste it here */
+    :root {
+      --bg: #0a0e1a;
+      --card: rgba(17,24,39,0.75);
+      --border: rgba(96,165,250,0.22);
+      --text: #f8fafc;
+      --muted: #94a3b8;
+      --accent: #60a5fa;
+      --glow: rgba(96,165,250,0.35);
+      --radius: 16px;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: clamp(4rem, 10vw, 8rem) 1.5rem;
+    }
+    h1 {
+      font-size: clamp(3rem, 10vw, 6rem);
+      font-weight: 800;
+      background: linear-gradient(90deg, var(--accent), #a5b4fc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .tagline {
+      font-size: clamp(1.2rem, 5vw, 1.5rem);
+      color: #d1d5db;
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 3rem;
+    }
+    .vision {
+      font-size: 1.15rem;
+      color: #cbd5e1;
+      margin: 2rem 0 3rem;
+      text-align: center;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.8rem;
+      margin: 3rem 0 4rem;
+    }
+    .card {
+      background: var(--card);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(96,165,250,0.25);
+    }
+    .card h3 {
+      font-size: 1.35rem;
+      margin-bottom: 0.8rem;
+      color: #e0f2fe;
+    }
+    .form-section {
+      max-width: 600px;
+      margin: 4rem auto 0;
+    }
+    .form-section label {
+      display: block;
+      margin: 1rem 0 0.4rem;
+      font-size: 0.95rem;
+      color: #cbd5e1;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 0.9rem;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      border-radius: 8px;
+      font-size: 1rem;
+    }
+    textarea { min-height: 140px; resize: vertical; }
+    button {
+      display: block;
+      width: 100%;
+      margin-top: 1.5rem;
+      padding: 1.1rem;
+      background: linear-gradient(135deg, #2563eb, var(--accent));
+      color: white;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+    button:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(96,165,250,0.4); }
+    footer {
+      margin-top: 6rem;
+      padding: 3rem 0;
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--muted);
+      border-top: 1px solid rgba(255,255,255,0.08);
+    }
+    @media (max-width: 640px) {
+      .container { padding: 4rem 1rem; }
+      h1 { font-size: 3.5rem; }
+      button { padding: 1.2rem; font-size: 1rem; }
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>TripLogic</h1>
-    <p class="tagline">Intelligent planning: every trip optimized before you pack.</p>
+    <p class="tagline">Intelligent trip planning that removes every ounce of friction.</p>
 
     <p class="vision">
-      TripLogic removes travel friction with pure logical reasoning. One prompt → complete itinerary. Transparent trade-offs. Real-time adaptation. No tabs, no stress — just the best path, every time.
+      TripLogic turns vague travel ideas into flawless, logical journeys in seconds. No more tab overload, no more bad trade-offs — just one prompt, transparent reasoning, and an optimized itinerary that actually makes sense. Built for people who want the best trip, not just any trip.
     </p>
 
     <div class="features">
       <div class="card">
-        <h3>One-Prompt Itinerary</h3>
-        <p>From vague idea to full plan: flights, stays, routing, pacing — generated instantly.</p>
+        <h3>One-Prompt Magic</h3>
+        <p>Describe your trip in natural language — budget, pace, interests, dates — get a complete, structured plan instantly.</p>
       </div>
       <div class="card">
         <h3>Transparent Trade-offs</h3>
-        <p>Clear cost/time/comfort/quality comparisons — you always know why it's optimal.</p>
+        <p>See crystal-clear comparisons of cost, time, comfort, quality, and vibe — so you always understand why each choice is best.</p>
       </div>
       <div class="card">
-        <h3>Live Adaptation Engine</h3>
-        <p>Automatically adjusts for delays, deals, weather, events — always current.</p>
+        <h3>Real-Time Adaptation</h3>
+        <p>Plans automatically evolve with flight changes, hotel deals, weather shifts, events, and cancellations — always current, always optimal.</p>
       </div>
     </div>
 
     <div class="form-section">
-      <h2 style="text-align:center;margin-bottom:1.5rem;">Request Early Access</h2>
-      <form action="https://formspree.io/f/mgooobvd" method="POST">
+      <h2 style="text-align:center;margin-bottom:1.5rem;">Join the Founding Waitlist</h2>
+      <form action="https://formspree.io/f/xnjjngql" method="POST">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required placeholder="Your full name" />
 
         <label for="email">Email</label>
         <input type="email" id="email" name="email" required placeholder="your@email.com" />
 
-        <label for="message">Message</label>
-        <textarea id="message" name="message" required placeholder="Tell us about your interest or what you're looking for..."></textarea>
+        <label for="message">Message (optional)</label>
+        <textarea id="message" name="message" placeholder="Tell us what kind of trips you want TripLogic to make logical for you..."></textarea>
 
-        <button type="submit">Send Message</button>
+        <button type="submit">Join Waitlist</button>
       </form>
     </div>
 
