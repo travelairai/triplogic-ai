@@ -2,174 +2,704 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>TripLogic</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>TripLogic.ai — Travel Planning Intelligence</title>
+  <meta name="description" content="TripLogic.ai — AI planning intelligence for travel optimization, logistics, and trip decision-making." />
+  <meta name="theme-color" content="#0B0E13" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="TripLogic.ai — Travel Planning Intelligence" />
+  <meta property="og:description" content="Plan smarter. Optimize trips. Turn complexity into clarity." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.triplogic.ai" />
+
+  <!-- Typography (matches TravelAir / BoardAI vibe) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
-    :root {
-      --bg: #0a0e1a;
-      --card: rgba(17,24,39,0.75);
-      --border: rgba(96,165,250,0.22);
-      --text: #f8fafc;
-      --muted: #94a3b8;
-      --accent: #60a5fa;
-      --glow: rgba(96,165,250,0.35);
-      --radius: 16px;
+    :root{
+      --bg:#0B0E13;
+      --glass: rgba(255,255,255,.045);
+      --glass2: rgba(255,255,255,.06);
+      --line: rgba(255,255,255,.10);
+      --text:#E6E8EB;
+      --muted: rgba(230,232,235,.72);
+      --muted2: rgba(230,232,235,.56);
+
+      /* Same “family” accent as TravelAir / BoardAI */
+      --accent:#4F6BFF;
+      --accent2:#5B8CFF;
+      --ok:#2EE59D;
+
+      --shadow: 0 18px 60px rgba(0,0,0,.45);
+      --r:18px;
+      --r2:24px;
+      --max:1120px;
     }
-    * { margin:0; padding:0; box-sizing:border-box; }
-    body {
-      font-family: 'Inter', system-ui, sans-serif;
-      background: var(--bg);
+
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color: var(--text);
-      line-height: 1.6;
-      min-height: 100vh;
+      background:
+        radial-gradient(1100px 760px at 14% 10%, rgba(79,107,255,.22), transparent 58%),
+        radial-gradient(900px 650px at 86% 18%, rgba(91,140,255,.14), transparent 60%),
+        radial-gradient(900px 650px at 50% 100%, rgba(46,229,157,.08), transparent 60%),
+        var(--bg);
+      line-height:1.45;
+      overflow-x:hidden;
     }
-    .container {
-      max-width: 960px;
-      margin: 0 auto;
-      padding: clamp(4rem, 10vw, 8rem) 1.5rem;
+
+    a{color:inherit; text-decoration:none}
+    .wrap{width:min(var(--max), calc(100% - 48px)); margin:0 auto;}
+
+    .grain{
+      pointer-events:none;
+      position:fixed; inset:-20%;
+      background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='260' height='260'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+      opacity:.06;
+      mix-blend-mode: overlay;
+      animation: drift 10s linear infinite;
     }
-    h1 {
-      font-size: clamp(3rem, 10vw, 6rem);
-      font-weight: 800;
-      background: linear-gradient(90deg, var(--accent), #a5b4fc);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-align: center;
-      margin-bottom: 1.5rem;
+    @keyframes drift{
+      0%{transform:translate3d(0,0,0)}
+      50%{transform:translate3d(-3%,2%,0)}
+      100%{transform:translate3d(0,0,0)}
     }
-    .tagline {
-      font-size: clamp(1.2rem, 5vw, 1.5rem);
-      color: #d1d5db;
-      text-align: center;
-      max-width: 720px;
-      margin: 0 auto 3rem;
+
+    header{
+      position:sticky; top:0; z-index:20;
+      backdrop-filter: blur(14px);
+      background: linear-gradient(to bottom, rgba(11,14,19,.86), rgba(11,14,19,.56));
+      border-bottom: 1px solid rgba(255,255,255,.06);
     }
-    .vision {
-      font-size: 1.15rem;
-      color: #cbd5e1;
-      margin: 2rem 0 3rem;
-      text-align: center;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding: 14px 0;
+      gap: 14px;
     }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.8rem;
-      margin: 3rem 0 4rem;
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      min-width: 220px;
     }
-    .card {
-      background: var(--card);
-      backdrop-filter: blur(12px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.8rem;
-      transition: all 0.3s ease;
+    .mark{
+      width:34px; height:34px; border-radius: 12px;
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(255,255,255,.46), transparent 55%),
+        linear-gradient(135deg, rgba(79,107,255,.98), rgba(91,140,255,.58));
+      border: 1px solid rgba(255,255,255,.14);
+      box-shadow: 0 10px 30px rgba(79,107,255,.22);
     }
-    .card:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 12px 40px rgba(96,165,250,0.25);
+    .brand .name{font-weight:650; letter-spacing:.2px;}
+    .brand .tag{display:block; font-size:12px; color:var(--muted2); margin-top:2px;}
+
+    nav.links{
+      display:flex; gap: 16px; align-items:center; justify-content:center;
+      flex:1;
     }
-    .card h3 {
-      font-size: 1.35rem;
-      margin-bottom: 0.8rem;
-      color: #e0f2fe;
-    }
-    .form-section {
-      max-width: 600px;
-      margin: 4rem auto 0;
-    }
-    .form-section label {
-      display: block;
-      margin: 1rem 0 0.4rem;
-      font-size: 0.95rem;
-      color: #cbd5e1;
-    }
-    input, textarea {
-      width: 100%;
-      padding: 0.9rem;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.12);
-      color: white;
-      border-radius: 8px;
-      font-size: 1rem;
-    }
-    textarea { min-height: 140px; resize: vertical; }
-    button {
-      display: block;
-      width: 100%;
-      margin-top: 1.5rem;
-      padding: 1.1rem;
-      background: linear-gradient(135deg, #2563eb, var(--accent));
-      color: white;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 999px;
-      cursor: pointer;
-      transition: all 0.3s;
-    }
-    button:hover { transform: translateY(-2px); box-shadow: 0 12px 40px rgba(96,165,250,0.4); }
-    footer {
-      margin-top: 6rem;
-      padding: 3rem 0;
-      text-align: center;
-      font-size: 0.9rem;
+    nav.links a{
+      font-size: 13px;
       color: var(--muted);
-      border-top: 1px solid rgba(255,255,255,0.08);
+      padding: 8px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .18s ease;
     }
-    @media (max-width: 640px) {
-      .container { padding: 4rem 1rem; }
-      h1 { font-size: 3.5rem; }
-      button { padding: 1.2rem; font-size: 1rem; }
+    nav.links a:hover{
+      color: var(--text);
+      border-color: rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+    }
+
+    .cta{
+      display:flex; gap:10px; align-items:center; justify-content:flex-end;
+      min-width: 220px;
+    }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:10px;
+      padding: 10px 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--text);
+      font-size: 13px;
+      transition: .18s ease;
+      cursor:pointer;
+      user-select:none;
+    }
+    .btn:hover{transform: translateY(-1px); background: rgba(255,255,255,.05)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(79,107,255,.95), rgba(91,140,255,.72));
+      border-color: rgba(255,255,255,.18);
+      box-shadow: 0 18px 50px rgba(79,107,255,.22);
+    }
+    .btn.primary:hover{filter:brightness(1.05)}
+    .dot{
+      width:8px; height:8px; border-radius: 50%;
+      background: rgba(255,255,255,.88);
+      box-shadow: 0 0 0 6px rgba(255,255,255,.10);
+    }
+
+    .hero{
+      padding: 78px 0 52px;
+      position:relative;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap: 28px;
+      align-items:start;
+    }
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.03);
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .pulse{
+      width:10px; height:10px; border-radius:50%;
+      background: var(--ok);
+      box-shadow: 0 0 0 0 rgba(46,229,157,.45);
+      animation: pulse 1.8s infinite;
+    }
+    @keyframes pulse{
+      0%{box-shadow: 0 0 0 0 rgba(46,229,157,.35)}
+      70%{box-shadow: 0 0 0 14px rgba(46,229,157,0)}
+      100%{box-shadow: 0 0 0 0 rgba(46,229,157,0)}
+    }
+
+    h1{
+      margin: 16px 0 12px;
+      font-size: clamp(34px, 4.2vw, 56px);
+      line-height: 1.05;
+      letter-spacing: -0.9px;
+    }
+    .sub{
+      font-size: 16px;
+      color: var(--muted);
+      max-width: 60ch;
+      margin-bottom: 20px;
+    }
+    .hero-actions{display:flex; flex-wrap:wrap; gap:12px; margin-top: 8px;}
+    .hero-note{
+      margin-top: 18px;
+      color: var(--muted2);
+      font-size: 12px;
+      display:flex;
+      gap:10px;
+      align-items:flex-start;
+      max-width: 64ch;
+    }
+    .hero-note svg{opacity:.75; margin-top:2px; flex:0 0 auto}
+
+    .panel{
+      border-radius: var(--r2);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      border: 1px solid rgba(255,255,255,.10);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .panel::before{
+      content:"";
+      position:absolute; inset:-2px;
+      background:
+        radial-gradient(520px 260px at 18% 0%, rgba(79,107,255,.22), transparent 58%),
+        radial-gradient(420px 240px at 90% 18%, rgba(91,140,255,.16), transparent 62%);
+      opacity:.9;
+      pointer-events:none;
+    }
+    .panel-inner{position:relative; padding: 18px;}
+    .panel-title{
+      font-size: 12px;
+      color: var(--muted2);
+      letter-spacing:.18em;
+      text-transform: uppercase;
+      margin: 4px 0 12px;
+    }
+    .panel-bullets{
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      margin: 0;
+      padding: 0;
+      list-style:none;
+    }
+    .panel-bullets li{
+      padding: 12px 12px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(0,0,0,.18);
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .panel-bullets strong{
+      color: rgba(255,255,255,.90);
+      font-weight: 600;
+    }
+
+    section{padding: 56px 0;}
+    .section-head{
+      display:flex;
+      align-items:flex-end;
+      justify-content:space-between;
+      gap: 18px;
+      margin-bottom: 18px;
+    }
+    h2{margin:0; font-size: 24px; letter-spacing:-0.4px;}
+    .hint{color: var(--muted2); font-size: 13px; max-width: 60ch;}
+
+    .grid3{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .card{
+      border-radius: var(--r);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+      transition: .18s ease;
+      min-height: 150px;
+    }
+    .card:hover{
+      transform: translateY(-2px);
+      background: rgba(255,255,255,.05);
+      border-color: rgba(255,255,255,.14);
+    }
+    .label{
+      font-size: 12px;
+      color: var(--muted2);
+      letter-spacing:.16em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display:flex;
+      align-items:center;
+      gap:10px;
+    }
+    .icon{
+      width: 28px;
+      height: 28px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.12);
+      background: linear-gradient(135deg, rgba(79,107,255,.22), rgba(255,255,255,.02));
+      display:grid;
+      place-items:center;
+    }
+    .card h3{margin: 0 0 8px; font-size: 16px; letter-spacing:-0.2px;}
+    .card p{margin:0; color: var(--muted); font-size: 13px; line-height:1.5;}
+
+    .philosophy{
+      border-radius: var(--r2);
+      padding: 26px;
+      border: 1px solid rgba(255,255,255,.10);
+      background:
+        radial-gradient(700px 220px at 20% 0%, rgba(79,107,255,.16), transparent 60%),
+        radial-gradient(700px 220px at 90% 0%, rgba(46,229,157,.10), transparent 60%),
+        rgba(255,255,255,.03);
+      box-shadow: var(--shadow);
+    }
+    .quote{
+      font-size: 18px;
+      letter-spacing: -0.2px;
+      margin:0 0 8px;
+    }
+    .quote small{
+      display:block;
+      color: var(--muted);
+      font-size: 13px;
+      margin-top: 10px;
+    }
+
+    .contact{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 18px;
+      align-items:start;
+    }
+    form{
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+    }
+    .field{display:flex; flex-direction:column; gap: 8px; margin-bottom: 12px;}
+    label{font-size: 12px; color: var(--muted2);}
+    input, textarea{
+      background: rgba(0,0,0,.25);
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 14px;
+      padding: 12px 12px;
+      color: var(--text);
+      outline:none;
+      font-size: 14px;
+      transition: .15s ease;
+    }
+    textarea{min-height: 110px; resize: vertical}
+    input:focus, textarea:focus{
+      border-color: rgba(91,140,255,.55);
+      box-shadow: 0 0 0 6px rgba(91,140,255,.10);
+    }
+    .form-actions{display:flex; gap: 10px; align-items:center; justify-content:flex-start; margin-top: 10px;}
+    .status{font-size: 12px; color: var(--muted2);}
+
+    .sidebox{
+      border-radius: var(--r2);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 18px;
+    }
+    .sidebox h3{margin:0 0 10px; font-size: 15px;}
+    .sidebox ul{
+      margin:0;
+      padding-left: 16px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+    .mini{
+      margin-top: 14px;
+      border-radius: var(--r);
+      border: 1px solid rgba(255,255,255,.10);
+      background: rgba(255,255,255,.03);
+      padding: 14px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height:1.5;
+    }
+
+    footer{
+      padding: 28px 0 34px;
+      border-top: 1px solid rgba(255,255,255,.08);
+      color: var(--muted2);
+      font-size: 12px;
+    }
+    .footer-row{
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+    }
+    .footlinks{display:flex; gap: 14px; align-items:center;}
+    .footlinks a{
+      color: var(--muted2);
+      border-bottom: 1px dashed rgba(255,255,255,.18);
+      padding-bottom: 2px;
+    }
+    .footlinks a:hover{color: var(--text)}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns: 1fr}
+      .cta{min-width:auto}
+      nav.links{display:none}
+      .grid3{grid-template-columns: 1fr}
+      .contact{grid-template-columns: 1fr}
+      .brand{min-width:auto}
     }
   </style>
 </head>
+
 <body>
-  <div class="container">
-    <h1>TripLogic</h1>
-    <p class="tagline">Intelligent trip planning that removes every ounce of friction.</p>
+  <div class="grain"></div>
 
-    <p class="vision">
-      TripLogic turns vague travel ideas into flawless, logical journeys in seconds. No more tab overload, no more bad trade-offs — just one prompt, transparent reasoning, and an optimized itinerary that actually makes sense. Built for people who want the best trip, not just any trip.
-    </p>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="TripLogic.ai home">
+          <div class="mark" aria-hidden="true"></div>
+          <div>
+            <div class="name">TripLogic.ai</div>
+            <span class="tag">Travel Planning Intelligence</span>
+          </div>
+        </a>
 
-    <div class="features">
-      <div class="card">
-        <h3>One-Prompt Magic</h3>
-        <p>Describe your trip in natural language — budget, pace, interests, dates — get a complete, structured plan instantly.</p>
-      </div>
-      <div class="card">
-        <h3>Transparent Trade-offs</h3>
-        <p>See crystal-clear comparisons of cost, time, comfort, quality, and vibe — so you always understand why each choice is best.</p>
-      </div>
-      <div class="card">
-        <h3>Real-Time Adaptation</h3>
-        <p>Plans automatically evolve with flight changes, hotel deals, weather shifts, events, and cancellations — always current, always optimal.</p>
+        <nav class="links" aria-label="Primary">
+          <a href="#overview">Overview</a>
+          <a href="#capabilities">Capabilities</a>
+          <a href="#usecases">Use Cases</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="cta">
+          <a class="btn" href="#contact">Partner / License</a>
+          <a class="btn primary" href="#contact"><span class="dot"></span>Contact</a>
+        </div>
       </div>
     </div>
+  </header>
 
-    <div class="form-section">
-      <h2 style="text-align:center;margin-bottom:1.5rem;">Join the Founding Waitlist</h2>
-      <form action="https://formspree.io/f/xnjjngql" method="POST">
-        <label for="name">Name</label>
-        <input type="text" id="name" name="name" required placeholder="Your full name" />
+  <main id="top">
+    <div class="wrap">
+      <section class="hero">
+        <div class="hero-grid">
+          <div>
+            <div class="kicker">
+              <span class="pulse" aria-hidden="true"></span>
+              Built for planning, optimization, and travel decision-making
+            </div>
 
-        <label for="email">Email</label>
-        <input type="email" id="email" name="email" required placeholder="your@email.com" />
+            <h1>Planning intelligence for travel — from intent to itinerary.</h1>
 
-        <label for="message">Message (optional)</label>
-        <textarea id="message" name="message" placeholder="Tell us what kind of trips you want TripLogic to make logical for you..."></textarea>
+            <p class="sub">
+              TripLogic.ai helps turn travel complexity into clarity — optimizing routes, timing, options, and decisions across trips and travel systems.
+            </p>
 
-        <button type="submit">Join Waitlist</button>
-      </form>
+            <div class="hero-actions">
+              <a class="btn primary" href="#contact"><span class="dot"></span>Open a Conversation</a>
+              <a class="btn" href="#capabilities">Explore Capabilities</a>
+            </div>
+
+            <div class="hero-note">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z" stroke="white" stroke-opacity=".35" stroke-width="1.7"/>
+                <path d="M12 7v6l4 2" stroke="white" stroke-opacity=".55" stroke-width="1.7" stroke-linecap="round"/>
+              </svg>
+              <span>
+                Minimal by design. TripLogic.ai is positioned as planning intelligence infrastructure — partnerships, licensing, and early access inquiries welcomed.
+              </span>
+            </div>
+          </div>
+
+          <aside class="panel" aria-label="Signal snapshot">
+            <div class="panel-inner">
+              <div class="panel-title">Signal Snapshot</div>
+              <ul class="panel-bullets">
+                <li><strong>Optimization:</strong> Reduce friction, increase certainty.</li>
+                <li><strong>Clarity:</strong> Make tradeoffs visible (time, cost, comfort).</li>
+                <li><strong>Precision:</strong> Better itineraries through better logic.</li>
+                <li><strong>Scale:</strong> Planning intelligence that compounds with usage.</li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </section>
     </div>
 
-    <footer>
-      © 2026 | All rights reserved. Privately held asset.
-    </footer>
-  </div>
+    <div class="wrap">
+      <section id="overview">
+        <div class="section-head">
+          <div>
+            <h2>Built for Planning Systems</h2>
+            <div class="hint">TripLogic.ai is designed as planning infrastructure — not a consumer app pitch.</div>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">✓</span> Route intelligence</div>
+            <h3>Smarter sequencing</h3>
+            <p>Turn destinations, constraints, and preferences into a plan that actually works in the real world.</p>
+          </div>
+
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">⌁</span> Decision logic</div>
+            <h3>Clear tradeoffs</h3>
+            <p>Make the “why” visible — time vs cost vs comfort — so the itinerary is defensible and intentional.</p>
+          </div>
+
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">◈</span> Optimization loops</div>
+            <h3>Continuous refinement</h3>
+            <p>Improve plans as conditions change — availability, timing, delays, weather, preferences, and priorities.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section id="capabilities">
+        <div class="section-head">
+          <div>
+            <h2>Capabilities</h2>
+            <div class="hint">High-level by design — keep optionality for partnerships and acquisition paths.</div>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">Δ</span> Itinerary optimization</div>
+            <h3>Plan with precision</h3>
+            <p>Optimize timing, sequence, dwell time, and constraints — without losing intent or flexibility.</p>
+          </div>
+
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">⚑</span> Constraint modeling</div>
+            <h3>Respect reality</h3>
+            <p>Work within budgets, time windows, transit constraints, preferences, and safety considerations.</p>
+          </div>
+
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">◎</span> Planning synthesis</div>
+            <h3>Outputs people trust</h3>
+            <p>Generate clean, usable plans — readable, adjustable, and designed to support confident decisions.</p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section id="usecases">
+        <div class="section-head">
+          <div>
+            <h2>Use Cases</h2>
+            <div class="hint">Broad framing keeps it premium and plug-in ready.</div>
+          </div>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">□</span> Consumer planning</div>
+            <h3>Trips & itineraries</h3>
+            <p>Planning intelligence for people who want clarity, confidence, and fewer travel mistakes.</p>
+          </div>
+
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">∥</span> Enterprise travel</div>
+            <h3>Optimization systems</h3>
+            <p>Route logic and planning infrastructure for teams, platforms, and travel operations.</p>
+          </div>
+
+          <div class="card">
+            <div class="label"><span class="icon" aria-hidden="true">⟡</span> Platform integrations</div>
+            <h3>Partner-ready</h3>
+            <p>Integrate planning intelligence into existing travel stacks — apps, booking flows, and ops tools.</p>
+          </div>
+        </div>
+
+        <div style="height:16px"></div>
+
+        <div class="philosophy" role="note" aria-label="Planning philosophy">
+          <p class="quote">
+            Planning is a decision problem — not a search problem.
+            <br />
+            <strong>TripLogic.ai exists to make planning reliable.</strong>
+            <small>Better logic creates better trips — and better systems.</small>
+          </p>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <section id="contact">
+        <div class="section-head">
+          <div>
+            <h2>Contact</h2>
+            <div class="hint">Partnerships, licensing, and early access inquiries.</div>
+          </div>
+        </div>
+
+        <div class="contact">
+          <!-- Keep Formspree EXACTLY the same -->
+          <form id="triplogicForm" action="https://formspree.io/f/xnjjngql" method="POST">
+            <div class="field">
+              <label for="name">Name</label>
+              <input id="name" name="name" type="text" placeholder="Your name" autocomplete="name" required />
+            </div>
+
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" placeholder="you@company.com" autocomplete="email" required />
+            </div>
+
+            <div class="field">
+              <label for="company">Company (optional)</label>
+              <input id="company" name="company" type="text" placeholder="Company / Organization" autocomplete="organization" />
+            </div>
+
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Tell us what you're exploring (partnership, licensing, acquisition interest, or early access)..." required></textarea>
+            </div>
+
+            <input type="hidden" name="source" value="triplogic.ai" />
+
+            <div class="form-actions">
+              <button class="btn primary" type="submit"><span class="dot"></span>Send</button>
+              <span class="status" id="formStatus" aria-live="polite"></span>
+            </div>
+          </form>
+
+          <div class="sidebox">
+            <h3>What to include</h3>
+            <ul>
+              <li>Your goal (partnership, licensing, acquisition interest, early access)</li>
+              <li>Planning domain (itinerary, ops, optimization, enterprise travel)</li>
+              <li>Timeline and constraints</li>
+              <li>Any data/security requirements</li>
+            </ul>
+
+            <div class="mini">
+              TripLogic.ai is a privately held planning intelligence asset. This page is intentionally minimal to preserve optionality and partnership flexibility.
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrap">
+      <footer>
+        <div class="footer-row">
+          <div>© <span id="year"></span> TripLogic.ai. All rights reserved.</div>
+          <div class="footlinks">
+            <a href="#top">Back to top</a>
+            <a href="#contact">Contact</a>
+          </div>
+        </div>
+      </footer>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Smooth anchor scroll
+    document.querySelectorAll('a[href^="#"]').forEach(a => {
+      a.addEventListener("click", (e) => {
+        const id = a.getAttribute("href");
+        if (!id || id === "#") return;
+        const el = document.querySelector(id);
+        if (!el) return;
+        e.preventDefault();
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      });
+    });
+
+    // Formspree submit UX (no redirect)
+    const form = document.getElementById("triplogicForm");
+    const statusEl = document.getElementById("formStatus");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "Sending...";
+
+      try {
+        const data = new FormData(form);
+        const res = await fetch(form.action, {
+          method: "POST",
+          body: data,
+          headers: { "Accept": "application/json" }
+        });
+
+        if (res.ok) {
+          form.reset();
+          statusEl.textContent = "Sent. We’ll follow up soon.";
+        } else {
+          statusEl.textContent = "Something went wrong. Please try again.";
+        }
+      } catch (err) {
+        statusEl.textContent = "Network error. Please try again.";
+      }
+    });
+  </script>
 </body>
 </html>
