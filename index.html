@@ -1,36 +1,11 @@
- <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CommanAI.ai — Command & Control Intelligence for AI Systems</title>
+  <title>TripLogic.ai — Decision Infrastructure for Travel Systems</title>
 
-  <meta name="description" content="CommanAI.ai is positioned as command and control intelligence for AI-driven systems — providing centralized authority, orchestration, and governance across complex autonomous environments." />
-
-  <style>
-    :root{
-      --bg:#05090A;
-      --panel:#0B1416;
-
-      --text:#F4FAF9;
-      --muted:#C6D8D6;
-      --muted2:#A9BFBC;
-
-      --line:rgba(255,255,255,.18);
-
-      /* Command authority palette */
-      --cmd:#2FD1B3;
-      --ctl:#1FA4A0;
-      --cmdSoft:rgba(47,209,179,.12);
-      --ctlSoft:rgba(31,164,16…
-[11:21 PM, 1/22/2026] .: <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TripLogic.ai — Decision Intelligence for Modern Travel Systems</title>
-
-  <meta name="description" content="TripLogic.ai is positioned as decision intelligence for modern travel systems — evaluating routes, constraints, preferences, and tradeoffs to enable smarter planning and orchestration." />
+  <meta name="description" content="TripLogic.ai is positioned as decision infrastructure for modern travel systems — planning, optimization, and orchestration across routes, inventory, policies, and real-world constraints. Private inquiries only." />
 
   <style>
     :root{
@@ -43,7 +18,7 @@
 
       --line:rgba(255,255,255,.18);
 
-      /* TripLogic palette: indigo / slate with subtle amber signal */
+      /* TripLogic palette: indigo/slate + subtle amber signal */
       --ind:#5F7CFF;
       --slate:#3B4A8A;
       --amber:#FFB24A;
@@ -85,8 +60,15 @@
     }
 
     .brand{display:flex; flex-direction:column; gap:4px}
-    .logo{font-size:20px; font-weight:800; letter-spacing:.4px}
-    .meta{font-size:12px; color:rgba(200,210,234,.88)}
+    .logo{
+      font-size:20px;
+      font-weight:800;
+      letter-spacing:.4px;
+    }
+    .meta{
+      font-size:12px;
+      color:rgba(200,210,234,.88);
+    }
 
     nav{
       display:flex;
@@ -122,6 +104,7 @@
       gap:10px;
       margin-bottom:16px;
     }
+
     .pill{
       display:inline-flex;
       align-items:center;
@@ -130,7 +113,9 @@
       font-size:12px;
       font-weight:600;
       letter-spacing:.15px;
+      white-space:nowrap;
     }
+
     .pill.logic{
       border:1px solid rgba(95,124,255,.45);
       background:rgba(95,124,255,.14);
@@ -195,6 +180,10 @@
       background:rgba(255,255,255,.05);
       color:#F1F4FF;
     }
+    .btn.secondary:hover{
+      border-color:rgba(255,255,255,.40);
+      transform:translateY(-1px);
+    }
 
     .grid{
       display:grid;
@@ -220,10 +209,12 @@
     .card p{margin:0; color:var(--muted2)}
 
     section{margin-top:34px}
+
     .sectionTitle{
       font-size:16px;
       margin-bottom:12px;
       color:#F0F4FF;
+      letter-spacing:-.2px;
     }
 
     .twoCol{
@@ -247,8 +238,15 @@
     ul{margin:0; padding-left:18px; color:var(--muted)}
     li{margin:10px 0}
 
-    form{display:grid; gap:12px; margin-top:18px}
-    label{font-size:13px; color:rgba(200,210,234,.9)}
+    form{
+      display:grid;
+      gap:12px;
+      margin-top:18px;
+    }
+    label{
+      font-size:13px;
+      color:rgba(200,210,234,.9);
+    }
     input, select, textarea{
       width:100%;
       padding:12px;
@@ -256,6 +254,7 @@
       border:1px solid rgba(255,255,255,.20);
       background:#0A1120;
       color:#FFFFFF;
+      outline:none;
     }
     textarea{min-height:120px}
 
@@ -282,153 +281,166 @@
 <body>
 <div class="container">
 
-<header>
-  <div class="brand">
-    <div class="logo">TripLogic.ai</div>
-    <div class="meta">Privately owned • Strategic discussions by inquiry only</div>
-  </div>
-  <nav>
-    <a href="#positioning">Positioning</a>
-    <a href="#why">Why it matters</a>
-    <a href="#usecases">Use cases</a>
-    <a href="#fit">Strategic fit</a>
-    <a href="#contact">Contact</a>
-  </nav>
-</header>
-
-<section class="hero" id="positioning">
-  <div class="pills">
-    <span class="pill logic">Decision intelligence</span>
-    <span class="pill orch">Planning & orchestration</span>
-    <span class="pill neutral">Enterprise infrastructure</span>
-    <span class="pill neutral">Private asset</span>
-  </div>
-
-  <h1>Decision intelligence for modern travel systems</h1>
-
-  <p class="subhead">
-    TripLogic.ai is positioned as the planning and orchestration layer that evaluates routes,
-    constraints, preferences, and tradeoffs — enabling intelligent decisions across complex
-    travel, mobility, and itinerary environments.
-  </p>
-
-  <div class="ctaRow">
-    <a class="btn primary" href="#contact">Request a private discussion</a>
-    <a class="btn secondary" href="#fit">View strategic fit</a>
-  </div>
-
-  <div class="grid">
-    <div class="card">
-      <h2>What this brand represents</h2>
-      <p>
-        TripLogic signals reasoning, optimization, and structured planning — the intelligence
-        that turns fragmented travel data into coherent, viable outcomes.
-      </p>
+  <header>
+    <div class="brand">
+      <div class="logo">TripLogic.ai</div>
+      <div class="meta">Privately owned • Strategic discussions by inquiry only</div>
     </div>
-    <div class="card">
-      <h2>Where it sits in the stack</h2>
-      <p>
-        Above booking engines and inventory layers — coordinating logic, constraints,
-        and tradeoffs before execution occurs.
-      </p>
-    </div>
-  </div>
-</section>
+    <nav>
+      <a href="#positioning">Positioning</a>
+      <a href="#why">Why it matters</a>
+      <a href="#usecases">Use cases</a>
+      <a href="#fit">Strategic fit</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<section id="why">
-  <div class="sectionTitle">Why logic becomes the leverage layer</div>
-  <div class="box">
-    <p>
-      Travel is fundamentally a decision problem. Prices shift, inventory changes,
-      policies conflict, and preferences compete. The real advantage is not another
-      interface — it is the logic that evaluates tradeoffs and orchestrates outcomes.
-    </p>
-    <p>
-      TripLogic.ai is positioned to represent that decision layer — planning and
-      optimization that enables systems to act intelligently under real constraints.
-    </p>
-  </div>
-</section>
+  <!-- HERO -->
+  <section class="hero" id="positioning">
+    <div class="pills">
+      <span class="pill logic">Decision infrastructure</span>
+      <span class="pill orch">Planning & orchestration</span>
+      <span class="pill neutral">Enterprise-grade</span>
+      <span class="pill neutral">Private asset</span>
+    </div>
 
-<section id="usecases">
-  <div class="sectionTitle">High-value use cases</div>
-  <div class="twoCol">
-    <div class="box">
-      <ul>
-        <li>Itinerary generation under time, cost, and policy constraints</li>
-        <li>Replanning and optimization during disruptions</li>
-        <li>Enterprise travel policy logic and approvals</li>
-        <li>Marketplace ranking, bundling, and tradeoff evaluation</li>
-        <li>Multimodal mobility planning and coordination</li>
-      </ul>
-    </div>
-    <div class="box">
-      <p>
-        This asset is written for serious buyers — travel platforms, infrastructure
-        providers, and strategic acquirers who understand that decision logic becomes
-        the control point as AI planning matures.
-      </p>
-      <p class="fine">
-        If TravelAir.ai is intelligence for travel, TripLogic.ai is the logic that plans it.
-      </p>
-    </div>
-  </div>
-</section>
+    <h1>Decision infrastructure for travel systems</h1>
 
-<section id="fit">
-  <div class="sectionTitle">Strategic acquisition profile</div>
-  <div class="twoCol">
-    <div class="box">
-      <ul>
-        <li>Travel marketplaces and itinerary platforms</li>
-        <li>Airline, hotel, and mobility infrastructure providers</li>
-        <li>Enterprise travel and expense platforms</li>
-        <li>Routing, optimization, and planning technology vendors</li>
-        <li>Strategic buyers seeking decision authority in travel systems</li>
-      </ul>
-    </div>
-    <div class="box">
-      <p>
-        TripLogic.ai is not publicly listed. Discussions are limited to strategic buyers
-        evaluating long-term positioning in travel and mobility decision systems.
-      </p>
-      <p class="fine">
-        Inquiries are reviewed selectively.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="sectionTitle">Request a private discussion</div>
-  <div class="box">
-    <p>
-      Use the form below to initiate a confidential conversation regarding TripLogic.ai.
-      Serious inquiries only.
+    <p class="subhead">
+      TripLogic.ai is positioned as the reasoning layer that plans, ranks, and re-optimizes travel outcomes —
+      evaluating routes, inventory, policies, and tradeoffs to produce the best viable itinerary under real constraints.
     </p>
 
-    <form action="https://formspree.io/f/xnjjngql" method="POST">
-      <label>Name</label>
-      <input type="text" name="name" required />
-      <label>Email</label>
-      <input type="email" name="email" required />
-      <label>Company</label>
-      <input type="text" name="company" />
-      <label>Message</label>
-      <textarea name="message" placeholder="Who you are, what you’re building, and why TripLogic.ai is relevant."></textarea>
-      <input type="hidden" name="_subject" value="TripLogic.ai — Private Inquiry" />
-      <button class="btn primary" type="submit">Submit inquiry</button>
-      <div class="fine">
-        Messages lacking strategic context may not receive a response.
+    <div class="ctaRow">
+      <a class="btn primary" href="#contact">Request a private discussion</a>
+      <a class="btn secondary" href="#fit">View strategic fit</a>
+    </div>
+
+    <div class="grid">
+      <div class="card">
+        <h2>What this brand represents</h2>
+        <p>
+          TripLogic signals structured reasoning and optimization — the layer that converts messy travel data
+          into coherent decisions that systems can execute.
+        </p>
       </div>
-    </form>
-  </div>
-</section>
+      <div class="card">
+        <h2>Where it sits in the stack</h2>
+        <p>
+          Above inventory, booking, and supplier systems — coordinating constraints, policies, and tradeoffs
+          before execution occurs.
+        </p>
+      </div>
+    </div>
+  </section>
 
-<footer>
-  <div>© TripLogic.ai</div>
-  <div>Privately held • Strategic discussions only</div>
-</footer>
+  <!-- WHY -->
+  <section id="why">
+    <div class="sectionTitle">Why logic becomes the leverage layer</div>
+    <div class="box">
+      <p>
+        Travel is a constraint problem. Pricing shifts, inventory disappears, policies conflict, and disruptions
+        force constant replanning. The winners are the systems that can reason through tradeoffs and re-optimize
+        outcomes continuously.
+      </p>
+      <p>
+        TripLogic.ai is positioned to represent that decision layer — planning and orchestration that enables
+        modern travel systems to behave intelligently under real-world conditions.
+      </p>
+    </div>
+  </section>
+
+  <!-- USE CASES -->
+  <section id="usecases">
+    <div class="sectionTitle">High-value use cases</div>
+    <div class="twoCol">
+      <div class="box">
+        <ul>
+          <li>Itinerary generation under time, cost, and policy constraints</li>
+          <li>Disruption handling: replanning, rerouting, and re-optimization</li>
+          <li>Enterprise travel policy logic, approvals, and compliance</li>
+          <li>Marketplace decisioning: ranking, bundling, and tradeoff evaluation</li>
+          <li>Multimodal mobility planning and coordination</li>
+        </ul>
+      </div>
+      <div class="box">
+        <p>
+          This asset is written for serious buyers — travel platforms, infrastructure providers, and strategic
+          acquirers who understand that decision intelligence becomes the control point as planning systems scale.
+        </p>
+        <p class="fine">
+          If TravelAir.ai is travel intelligence, TripLogic.ai is the logic that plans outcomes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- STRATEGIC FIT -->
+  <section id="fit">
+    <div class="sectionTitle">Strategic acquisition profile</div>
+    <div class="twoCol">
+      <div class="box">
+        <ul>
+          <li>Travel marketplaces and itinerary platforms</li>
+          <li>Airline, hotel, and mobility infrastructure providers</li>
+          <li>Enterprise travel, expense, and policy platforms</li>
+          <li>Optimization, routing, and planning technology vendors</li>
+          <li>Strategic buyers seeking decision authority in travel systems</li>
+        </ul>
+      </div>
+      <div class="box">
+        <p>
+          TripLogic.ai is not publicly listed. Discussions are limited to strategic buyers evaluating long-term
+          positioning in travel and mobility decision systems.
+        </p>
+        <p class="fine">
+          Inquiries are reviewed selectively.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="sectionTitle">Request a private discussion</div>
+    <div class="box">
+      <p>
+        Use the form below to initiate a confidential conversation regarding TripLogic.ai.
+        Serious inquiries only.
+      </p>
+
+      <form action="https://formspree.io/f/xnjjngql" method="POST">
+        <label>Name</label>
+        <input type="text" name="name" required />
+
+        <label>Email</label>
+        <input type="email" name="email" required />
+
+        <label>Company</label>
+        <input type="text" name="company" />
+
+        <label>Message</label>
+        <textarea name="message" placeholder="Who you are, what you’re building, and why TripLogic.ai is relevant."></textarea>
+
+        <input type="hidden" name="_subject" value="TripLogic.ai — Private Inquiry" />
+
+        <button class="btn primary" type="submit">Submit inquiry</button>
+
+        <div class="fine">
+          Messages lacking strategic context may not receive a response.
+        </div>
+      </form>
+
+      <div class="fine" style="margin-top:12px">
+        Note: This is an acquisition-grade asset presentation. It does not represent an operating product unless explicitly stated in writing.
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div>© TripLogic.ai</div>
+    <div>Privately held • Strategic discussions only</div>
+  </footer>
 
 </div>
 </body>
