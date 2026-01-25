@@ -1,25 +1,4 @@
- <!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>CommandAI.ai — Enterprise Command & Control Intelligence</title>
-  <meta name="description" content="CommandAI.ai is command-and-control intelligence for enterprises—authority, orchestration, escalation, and execution oversight across complex systems." />
-  <meta name="theme-color" content="#0b1220" />
-
-  <style>
-    :root{
-      --bg0:#070b14;
-      --bg1:#0b1220;
-      --card:rgba(255,255,255,.06);
-      --stroke:rgba(255,255,255,.10);
-      --text:#eaf0ff;
-      --muted:rgba(234,240,255,.72);
-      --muted2:rgba(234,240,255,.58);
-      --accent:#22c55e;   /* emerald */
-      --accent2:#14b8a6;  /* teal */
-    …
-[7:53 PM, 1/24/2026] .: <!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
@@ -32,216 +11,469 @@
     :root{
       --bg0:#070b14;
       --bg1:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --card2:rgba(255,255,255,.08);
+      --stroke:rgba(255,255,255,.10);
       --text:#eaf0ff;
       --muted:rgba(234,240,255,.72);
       --muted2:rgba(234,240,255,.58);
       --accent:#6366f1;   /* indigo */
       --accent2:#22d3ee;  /* cyan */
       --good:#40ffaa;
-      --shadow:0 18px 55px rgba(0,0,0,.45);
-      --radius:18px;
-      --max:1120px;
+      --shadow: 0 18px 55px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1120px;
     }
 
     *{box-sizing:border-box}
+    html,body{height:100%}
     body{
       margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
       color:var(--text);
       background:
         radial-gradient(1200px 700px at 15% 10%, rgba(99,102,241,.18), transparent 60%),
         radial-gradient(900px 600px at 85% 20%, rgba(34,211,238,.14), transparent 55%),
+        radial-gradient(900px 600px at 50% 110%, rgba(64,255,170,.10), transparent 55%),
         linear-gradient(180deg, var(--bg0), var(--bg1));
+      overflow-x:hidden;
     }
 
-    a{text-decoration:none;color:inherit}
-    .wrap{max-width:var(--max);margin:auto;padding:22px 18px}
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max);margin:0 auto;padding:22px 18px}
 
+    /* Top bar */
     .topbar{
-      position:sticky;top:0;
-      backdrop-filter:blur(14px);
-      background:rgba(7,11,20,.55);
+      position:sticky;top:0;z-index:20;
+      backdrop-filter: blur(14px);
+      background: rgba(7,11,20,.55);
       border-bottom:1px solid rgba(255,255,255,.08);
     }
-
-    .brand{display:flex;align-items:center;gap:12px}
+    .topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:14px}
+    .brand{display:flex;align-items:center;gap:12px;min-width:240px}
     .logo{
       width:34px;height:34px;border-radius:10px;
-      background:linear-gradient(135deg,var(--accent),var(--accent2));
-      box-shadow:0 10px 30px rgba(0,0,0,.35);
+      background:
+        radial-gradient(14px 14px at 30% 30%, rgba(99,102,241,.95), rgba(99,102,241,0) 70%),
+        radial-gradient(16px 16px at 70% 70%, rgba(34,211,238,.95), rgba(34,211,238,0) 72%),
+        linear-gradient(135deg, rgba(255,255,255,.14), rgba(255,255,255,.04));
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+    }
+    .brand .name{font-weight:700;letter-spacing:.2px}
+    .brand .tag{font-size:12px;color:var(--muted2);margin-top:2px}
+
+    .nav{display:flex;gap:16px;align-items:center;justify-content:flex-end;flex-wrap:wrap}
+    .nav a{
+      font-size:13px;color:var(--muted);
+      padding:8px 10px;border-radius:10px;
+      border:1px solid transparent;
+    }
+    .nav a:hover{border-color:rgba(255,255,255,.10);background:rgba(255,255,255,.04);color:var(--text)}
+    .btn{
+      display:inline-flex;align-items:center;justify-content:center;
+      padding:10px 14px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      box-shadow: 0 12px 28px rgba(0,0,0,.28);
+      font-weight:650;
+      transition: transform .15s ease, background .15s ease, border-color .15s ease;
+    }
+    .btn:hover{transform:translateY(-1px);background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.18)}
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(99,102,241,.22), rgba(34,211,238,.18));
+      border-color: rgba(99,102,241,.28);
     }
 
-    h1{font-size:clamp(34px,4vw,52px);margin:16px 0 10px}
-    .sub{color:var(--muted);max-width:65ch;line-height:1.6}
-
-    section{padding:34px 0}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
-    .card{
-      padding:16px;border-radius:16px;
+    /* Hero */
+    .hero{padding:52px 0 24px}
+    .heroGrid{
+      display:grid;
+      grid-template-columns: 1.25fr .75fr;
+      gap:22px;
+      align-items:start;
+    }
+    .kicker{
+      display:inline-flex;align-items:center;gap:10px;
+      padding:8px 12px;border-radius:999px;
       background:rgba(255,255,255,.05);
       border:1px solid rgba(255,255,255,.10);
+      color:var(--muted);
+      font-size:13px;
+      width:fit-content;
     }
-    .card h3{margin:0 0 8px;font-size:15px}
-    .card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
+    .dot{
+      width:8px;height:8px;border-radius:999px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 0 0 6px rgba(99,102,241,.10);
+    }
+    h1{
+      margin:16px 0 10px;
+      font-size: clamp(34px, 4.2vw, 54px);
+      line-height:1.05;
+      letter-spacing:-.6px;
+    }
+    .sub{
+      font-size:16px;
+      line-height:1.6;
+      color:var(--muted);
+      max-width: 62ch;
+      margin:0 0 18px;
+    }
+    .heroCtas{display:flex;gap:12px;flex-wrap:wrap;margin-top:10px}
+    .note{margin-top:14px;font-size:12.5px;color:var(--muted2)}
 
+    /* Panels */
     .panel{
-      background:rgba(255,255,255,.06);
+      background: linear-gradient(180deg, rgba(255,255,255,.07), rgba(255,255,255,.04));
       border:1px solid rgba(255,255,255,.12);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
     }
     .panel .pad{padding:18px}
-
-    label{font-size:12px;color:var(--muted2)}
-    input,select,textarea{
-      width:100%;padding:12px;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.14);
-      background:rgba(0,0,0,.25);
-      color:var(--text);
+    .miniTitle{font-size:12px;color:var(--muted2);letter-spacing:.22em;text-transform:uppercase}
+    .bigStat{margin-top:10px;font-size:20px;font-weight:750;letter-spacing:-.2px}
+    .bullets{margin:12px 0 0;padding:0;list-style:none;display:grid;gap:10px}
+    .bullets li{display:flex;gap:10px;align-items:flex-start;color:var(--muted);font-size:13.5px;line-height:1.5}
+    .check{
+      width:18px;height:18px;flex:0 0 18px;border-radius:6px;
+      background: rgba(64,255,170,.12);
+      border:1px solid rgba(64,255,170,.30);
+      position:relative;margin-top:2px;
     }
-    textarea{min-height:120px}
-    .formWrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-    .span2{grid-column:span 2}
+    .check:after{
+      content:"";position:absolute;left:5px;top:3px;width:6px;height:10px;
+      border-right:2px solid rgba(64,255,170,.95);
+      border-bottom:2px solid rgba(64,255,170,.95);
+      transform:rotate(40deg);
+    }
+    .divider{
+      height:1px;background: linear-gradient(90deg, transparent, rgba(255,255,255,.14), transparent);
+      margin: 10px 0;
+    }
 
-    @media(max-width:900px){
-      .grid3{grid-template-columns:1fr}
-      .formWrap{grid-template-columns:1fr}
-      .span2{grid-column:auto}
+    /* Sections */
+    section{padding:34px 0}
+    .sectionHead{display:flex;align-items:flex-end;justify-content:space-between;gap:12px;flex-wrap:wrap}
+    .sectionHead h2{margin:0;font-size:24px;letter-spacing:-.3px}
+    .sectionHead p{margin:0;color:var(--muted);max-width:70ch;line-height:1.6}
+    .grid3{margin-top:16px;display:grid;grid-template-columns: repeat(3, 1fr);gap:14px}
+    .card{
+      padding:16px;border-radius:16px;
+      background: rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
+      min-height:150px;
+    }
+    .card h3{margin:0 0 8px;font-size:15px}
+    .card p{margin:0;color:var(--muted);line-height:1.55;font-size:13.5px}
+
+    /* Form */
+    .formWrap{display:grid;grid-template-columns: 1fr 1fr;gap:14px;margin-top:14px}
+    label{display:block;font-size:12px;color:var(--muted2);margin:0 0 6px}
+    input, select, textarea{
+      width:100%;padding:12px 12px;border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.22);
+      color: var(--text);
+      outline:none;
+    }
+    input::placeholder, textarea::placeholder{color:rgba(234,240,255,.40)}
+    textarea{min-height:128px;resize:vertical}
+    .span2{grid-column: span 2}
+    .formActions{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;margin-top:12px}
+    .fineprint{font-size:12px;color:var(--muted2);line-height:1.5;max-width:70ch}
+    .footer{padding:22px 0 40px;color:var(--muted2);font-size:12px}
+
+    @media (max-width: 980px){
+      .heroGrid{grid-template-columns: 1fr;gap:14px}
+      .grid3{grid-template-columns: 1fr}
+      .formWrap{grid-template-columns: 1fr}
+      .span2{grid-column: auto}
+      .brand{min-width:auto}
     }
   </style>
 </head>
 
 <body>
-
-<div class="topbar">
-  <div class="wrap brand">
-    <div class="logo"></div>
-    <strong>TripLogic.ai</strong>
-  </div>
-</div>
-
-<main class="wrap">
-
-<section>
-  <h1>Decision and optimization intelligence for complex planning.</h1>
-  <p class="sub">
-    TripLogic.ai evaluates tradeoffs, constraints, and outcomes across travel and operational systems—
-    so decisions remain coherent, defensible, and optimizable over time.
-  </p>
-</section>
-
-<section class="grid3">
-  <div class="card">
-    <h3>Model tradeoffs explicitly</h3>
-    <p>Evaluate cost, time, risk, policy, and experience simultaneously instead of optimizing in silos.</p>
-  </div>
-  <div class="card">
-    <h3>Preserve decision context</h3>
-    <p>Capture why a decision was made so optimization doesn’t reset with every change.</p>
-  </div>
-  <div class="card">
-    <h3>Optimize within constraints</h3>
-    <p>Respect policy, governance, and real-world limits while improving outcomes.</p>
-  </div>
-</section>
-
-<section>
-  <div class="panel">
-    <div class="pad">
-      <h2>What TripLogic.ai powers</h2>
-      <p class="sub">
-        Positioned as the reasoning layer inside a broader intelligence stack—
-        TripLogic.ai turns inputs into ranked options and measurable tradeoffs.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section class="grid3">
-  <div class="card">
-    <h3>Multi-objective planning</h3>
-    <p>Balance competing priorities across time, cost, risk, experience, and operational impact.</p>
-  </div>
-  <div class="card">
-    <h3>Scenario evaluation</h3>
-    <p>Compare options and counterfactuals before execution instead of reacting afterward.</p>
-  </div>
-  <div class="card">
-    <h3>Constraint-aware optimization</h3>
-    <p>Optimize only within approved guardrails so decisions stay compliant and defensible.</p>
-  </div>
-  <div class="card">
-    <h3>Outcome scoring</h3>
-    <p>Define success criteria and continuously evaluate how well decisions perform.</p>
-  </div>
-  <div class="card">
-    <h3>Coordination-ready outputs</h3>
-    <p>Feed ranked decisions directly into coordination and execution layers.</p>
-  </div>
-  <div class="card">
-    <h3>Foundation for intelligence stacks</h3>
-    <p>
-      TripLogic.ai pairs naturally with TravelAir.ai (coordination),
-      CommandAI.ai (control), and MotionAI.ai (execution).
-    </p>
-  </div>
-</section>
-
-<section>
-  <div class="panel">
-    <div class="pad">
-      <h2>Built for strategic buyers</h2>
-      <p class="sub">
-        Designed for enterprises, platforms, and PE-backed operators that need
-        durable decision logic across systems and time horizons.
-      </p>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="panel">
-    <div class="pad">
-      <h2>Inquire</h2>
-      <p class="sub">Serious acquisition, licensing, or strategic discussions only.</p>
-
-      <form action="https://formspree.io/f/xnjjngql" method="POST">
-        <div class="formWrap">
-          <input name="name" placeholder="Full name" required />
-          <input name="email" type="email" placeholder="Work email" required />
-          <input name="company" placeholder="Company / fund / organization" />
-          <input name="role" placeholder="Role or title" />
-          <select name="intent">
-            <option>Acquisition</option>
-            <option>Strategic partnership</option>
-            <option>Licensing</option>
-          </select>
-          <select name="timeline">
-            <option>Now</option>
-            <option>30–90 days</option>
-            <option>Exploratory</option>
-          </select>
-          <select class="span2" name="budget">
-            <option>Prefer not to say</option>
-            <option>$50k–$150k</option>
-            <option>$150k–$300k</option>
-            <option>$300k–$500k</option>
-            <option>$500k+</option>
-          </select>
-          <textarea class="span2" name="message" placeholder="What planning or optimization problem are you solving? What constraints matter most?"></textarea>
+  <div class="topbar">
+    <div class="wrap">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>
+          <div class="name">TripLogic.ai</div>
+          <div class="tag">Decision and optimization intelligence</div>
         </div>
-        <br />
-        <button type="submit">Submit inquiry</button>
-      </form>
+      </div>
+
+      <div class="nav">
+        <a href="#why">Why</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#buyers">Buyers</a>
+        <a href="#contact">Contact</a>
+        <a class="btn primary" href="#contact">Inquire</a>
+      </div>
     </div>
   </div>
-</section>
 
-<footer class="wrap" style="color:var(--muted2);font-size:12px">
-  © <script>document.write(new Date().getFullYear())</script> TripLogic.ai — Decision & optimization intelligence. Privately held digital asset.
-</footer>
+  <main class="wrap">
+    <!-- HERO -->
+    <div class="hero">
+      <div class="heroGrid">
+        <div>
+          <div class="kicker"><span class="dot"></span> Tradeoffs, constraints, ranking, outcome scoring</div>
+          <h1>Decision and optimization intelligence for complex planning.</h1>
+          <p class="sub">
+            TripLogic.ai is positioned as the reasoning layer that evaluates options under constraints —
+            making planning decisions coherent, defensible, and optimizable across time.
+          </p>
 
-</main>
+          <div class="heroCtas">
+            <a class="btn primary" href="#contact">Request access / discuss acquisition</a>
+            <a class="btn" href="#capabilities">See what it powers</a>
+          </div>
+
+          <div class="note">
+            Positioning: infrastructure-first. Built for durable decision logic inside enterprise systems.
+          </div>
+        </div>
+
+        <aside class="panel">
+          <div class="pad">
+            <div class="miniTitle">Asset posture</div>
+            <div class="bigStat">Acquisition-grade domain + decision narrative</div>
+            <ul class="bullets">
+              <li><span class="check"></span><span><strong>Reasoning layer</strong> for ranking options under constraints.</span></li>
+              <li><span class="check"></span><span>Designed for <strong>multi-objective tradeoffs</strong> (cost, time, risk, policy, outcomes).</span></li>
+              <li><span class="check"></span><span>Pairs naturally with <strong>TravelAir.ai</strong> (coordination) and CommandAI.ai (control).</span></li>
+              <li><span class="check"></span><span>Clear buyer fit: platforms, enterprise travel, ops systems, PE rollups, optimization vendors.</span></li>
+            </ul>
+
+            <div class="divider"></div>
+
+            <div class="miniTitle">Availability</div>
+            <p style="margin:10px 0 0;color:var(--muted);line-height:1.55;font-size:13.5px">
+              This digital asset is privately held and structured for serious strategic conversations.
+              Use the inquiry form below to request details.
+            </p>
+          </div>
+        </aside>
+      </div>
+    </div>
+
+    <!-- WHY -->
+    <section id="why">
+      <div class="sectionHead">
+        <div>
+          <h2>Why TripLogic.ai exists</h2>
+          <p>
+            Planning breaks when decisions are made in silos. Optimization fails when constraints are unclear.
+            TripLogic.ai represents the layer where tradeoffs are explicit and outcomes are measurable.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Make tradeoffs explicit</h3>
+          <p>
+            Evaluate multiple objectives simultaneously — cost, time, risk, policy, experience — instead of optimizing one metric at a time.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Respect constraints</h3>
+          <p>
+            Optimize only within approved guardrails so decisions remain compliant, defensible, and stable across org changes.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Make outcomes measurable</h3>
+          <p>
+            Preserve decision context and scoring so improvement compounds over time instead of resetting each cycle.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAPABILITIES -->
+    <section id="capabilities">
+      <div class="sectionHead">
+        <div>
+          <h2>What it powers</h2>
+          <p>
+            TripLogic.ai is positioned as decision infrastructure: scenario evaluation, constraint-aware optimization,
+            ranking, and outcome scoring for complex operational systems.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Multi-objective optimization</h3>
+          <p>
+            Balance competing priorities across time, cost, policy, risk, experience, and operational impact.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Scenario evaluation</h3>
+          <p>
+            Compare options and counterfactuals before execution — so teams choose with clarity, not reaction.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Constraint-aware ranking</h3>
+          <p>
+            Produce ranked choices that already respect guardrails, approvals, and policies — eliminating downstream rework.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Outcome scoring</h3>
+          <p>
+            Define success criteria and evaluate how well decisions perform over time — enabling measurable optimization.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Decision traceability</h3>
+          <p>
+            Preserve the “why” behind decisions so governance and accountability persist across teams and time horizons.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Stack alignment</h3>
+          <p>
+            TripLogic.ai pairs with TravelAir.ai (coordination), CommandAI.ai (control), and MotionAI.ai (execution) for end-to-end systems.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BUYERS -->
+    <section id="buyers">
+      <div class="sectionHead">
+        <div>
+          <h2>Built for strategic buyers</h2>
+          <p>
+            This domain and positioning map to enterprise priorities: durable decision logic, measurable tradeoffs,
+            and optimization that survives organizational change.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Platforms and enterprise systems</h3>
+          <p>
+            Buyers who need decision and ranking infrastructure embedded into workflows and systems of record.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Operationally complex industries</h3>
+          <p>
+            Travel, logistics, hospitality, workforce ops — where constraints and tradeoffs are the business.
+          </p>
+        </div>
+        <div class="card">
+          <h3>PE / rollups / consolidators</h3>
+          <p>
+            Standardize planning and optimization across portfolio companies with shared constraints and measurable outcomes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT / FORM -->
+    <section id="contact">
+      <div class="panel">
+        <div class="pad">
+          <div class="sectionHead" style="margin-bottom:8px">
+            <div>
+              <h2>Inquire</h2>
+              <p>
+                If you’re exploring acquisition, partnership, licensing, or strategic alignment, submit a serious inquiry.
+                You’ll receive a response with next steps.
+              </p>
+            </div>
+          </div>
+
+          <form action="https://formspree.io/f/xnjjngql" method="POST">
+            <div class="formWrap">
+              <div>
+                <label for="name">Full name</label>
+                <input id="name" name="name" type="text" placeholder="Your name" required />
+              </div>
+
+              <div>
+                <label for="email">Work email</label>
+                <input id="email" name="email" type="email" placeholder="name@company.com" required />
+              </div>
+
+              <div>
+                <label for="company">Company</label>
+                <input id="company" name="company" type="text" placeholder="Company / fund / firm" />
+              </div>
+
+              <div>
+                <label for="role">Role</label>
+                <input id="role" name="role" type="text" placeholder="Title (e.g., VP, Partner, GM)" />
+              </div>
+
+              <div>
+                <label for="intent">Inquiry type</label>
+                <select id="intent" name="intent">
+                  <option>Acquisition</option>
+                  <option>Strategic partnership</option>
+                  <option>Licensing</option>
+                  <option>Media / speaking</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div>
+                <label for="timeline">Timeline</label>
+                <select id="timeline" name="timeline">
+                  <option>Now</option>
+                  <option>30–90 days</option>
+                  <option>3–6 months</option>
+                  <option>6–12 months</option>
+                  <option>Exploratory</option>
+                </select>
+              </div>
+
+              <div class="span2">
+                <label for="budget">Budget range (optional)</label>
+                <select id="budget" name="budget">
+                  <option>Prefer not to say</option>
+                  <option>$50k – $150k</option>
+                  <option>$150k – $300k</option>
+                  <option>$300k – $500k</option>
+                  <option>$500k+</option>
+                </select>
+              </div>
+
+              <div class="span2">
+                <label for="message">Message</label>
+                <textarea id="message" name="message" placeholder="What planning or optimization problem are you solving? What constraints matter most (policy, cost, risk, experience), and what outcome are you targeting?"></textarea>
+              </div>
+            </div>
+
+            <div class="formActions">
+              <button class="btn primary" type="submit">Send inquiry</button>
+              <div class="fineprint">
+                By submitting, you agree this outreach is a serious business inquiry. No spam. Responses are prioritized for strategic buyers.
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer">
+        © <span id="y"></span> TripLogic.ai — Decision & optimization intelligence. Privately held digital asset.
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
