@@ -1,447 +1,247 @@
-<!doctype html>
+[7:50 PM, 1/24/2026] .: <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>TripLogic.ai — Decision Infrastructure for Travel Systems</title>
-
-  <meta name="description" content="TripLogic.ai is positioned as decision infrastructure for modern travel systems — planning, optimization, and orchestration across routes, inventory, policies, and real-world constraints. Private inquiries only." />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>CommandAI.ai — Enterprise Command & Control Intelligence</title>
+  <meta name="description" content="CommandAI.ai is command-and-control intelligence for enterprises—authority, orchestration, escalation, and execution oversight across complex systems." />
+  <meta name="theme-color" content="#0b1220" />
 
   <style>
     :root{
-      --bg:#05070D;
-      --panel:#0B1220;
+      --bg0:#070b14;
+      --bg1:#0b1220;
+      --card:rgba(255,255,255,.06);
+      --stroke:rgba(255,255,255,.10);
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.58);
+      --accent:#22c55e;   /* emerald */
+      --accent2:#14b8a6;  /* teal */
+    …
+[7:53 PM, 1/24/2026] .: <!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>TripLogic.ai — Decision & Optimization Intelligence</title>
+  <meta name="description" content="TripLogic.ai is decision and optimization intelligence—evaluating tradeoffs, constraints, and outcomes so planning decisions compound instead of resetting." />
+  <meta name="theme-color" content="#0b1220" />
 
-      --text:#F4F7FF;
-      --muted:#C8D2EA;
-      --muted2:#AAB6D4;
-
-      --line:rgba(255,255,255,.18);
-
-      /* TripLogic palette: indigo/slate + subtle amber signal */
-      --ind:#5F7CFF;
-      --slate:#3B4A8A;
-      --amber:#FFB24A;
-
-      --indSoft:rgba(95,124,255,.12);
-      --slateSoft:rgba(59,74,138,.10);
-      --amberSoft:rgba(255,178,74,.10);
+  <style>
+    :root{
+      --bg0:#070b14;
+      --bg1:#0b1220;
+      --text:#eaf0ff;
+      --muted:rgba(234,240,255,.72);
+      --muted2:rgba(234,240,255,.58);
+      --accent:#6366f1;   /* indigo */
+      --accent2:#22d3ee;  /* cyan */
+      --good:#40ffaa;
+      --shadow:0 18px 55px rgba(0,0,0,.45);
+      --radius:18px;
+      --max:1120px;
     }
 
     *{box-sizing:border-box}
-    html,body{height:100%}
-
     body{
       margin:0;
-      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-      background:
-        radial-gradient(900px 420px at 14% -10%, var(--indSoft), transparent 60%),
-        radial-gradient(760px 420px at 85% 8%, var(--slateSoft), transparent 65%),
-        radial-gradient(520px 260px at 70% 82%, var(--amberSoft), transparent 62%),
-        var(--bg);
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
-      line-height:1.6;
+      background:
+        radial-gradient(1200px 700px at 15% 10%, rgba(99,102,241,.18), transparent 60%),
+        radial-gradient(900px 600px at 85% 20%, rgba(34,211,238,.14), transparent 55%),
+        linear-gradient(180deg, var(--bg0), var(--bg1));
     }
 
-    a{color:inherit; text-decoration:none}
+    a{text-decoration:none;color:inherit}
+    .wrap{max-width:var(--max);margin:auto;padding:22px 18px}
 
-    .container{
-      max-width:1080px;
-      margin:0 auto;
-      padding:42px 20px 96px;
+    .topbar{
+      position:sticky;top:0;
+      backdrop-filter:blur(14px);
+      background:rgba(7,11,20,.55);
+      border-bottom:1px solid rgba(255,255,255,.08);
     }
 
-    header{
-      display:flex;
-      justify-content:space-between;
-      align-items:flex-start;
-      gap:16px;
-      margin-bottom:36px;
-    }
-
-    .brand{display:flex; flex-direction:column; gap:4px}
+    .brand{display:flex;align-items:center;gap:12px}
     .logo{
-      font-size:20px;
-      font-weight:800;
-      letter-spacing:.4px;
-    }
-    .meta{
-      font-size:12px;
-      color:rgba(200,210,234,.88);
+      width:34px;height:34px;border-radius:10px;
+      background:linear-gradient(135deg,var(--accent),var(--accent2));
+      box-shadow:0 10px 30px rgba(0,0,0,.35);
     }
 
-    nav{
-      display:flex;
-      gap:10px;
-      flex-wrap:wrap;
-      justify-content:flex-end;
-    }
-    nav a{
-      font-size:13px;
-      color:#DDE5F7;
-      padding:8px 10px;
-      border:1px solid rgba(255,255,255,.22);
-      border-radius:999px;
-      background:rgba(255,255,255,.03);
-      transition:.15s ease;
-    }
-    nav a:hover{
-      color:#FFFFFF;
-      border-color:rgba(255,255,255,.36);
-      transform:translateY(-1px);
-    }
+    h1{font-size:clamp(34px,4vw,52px);margin:16px 0 10px}
+    .sub{color:var(--muted);max-width:65ch;line-height:1.6}
 
-    .hero{
-      border:1px solid rgba(255,255,255,.20);
-      border-radius:20px;
-      padding:28px 20px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    }
-
-    .pills{
-      display:flex;
-      flex-wrap:wrap;
-      gap:10px;
-      margin-bottom:16px;
-    }
-
-    .pill{
-      display:inline-flex;
-      align-items:center;
-      padding:7px 12px;
-      border-radius:999px;
-      font-size:12px;
-      font-weight:600;
-      letter-spacing:.15px;
-      white-space:nowrap;
-    }
-
-    .pill.logic{
-      border:1px solid rgba(95,124,255,.45);
-      background:rgba(95,124,255,.14);
-      color:#E6ECFF;
-    }
-    .pill.orch{
-      border:1px solid rgba(255,178,74,.40);
-      background:rgba(255,178,74,.10);
-      color:#FFE7C7;
-    }
-    .pill.neutral{
-      border:1px solid rgba(255,255,255,.26);
-      background:rgba(255,255,255,.06);
-      color:#E7ECF8;
-      font-weight:560;
-    }
-
-    h1{
-      margin:10px 0 12px;
-      font-size:42px;
-      line-height:1.05;
-      letter-spacing:-.7px;
-      color:#F7F9FF;
-    }
-
-    .subhead{
-      font-size:17px;
-      color:var(--muted);
-      max-width:940px;
-      margin:0 0 20px;
-    }
-
-    .ctaRow{
-      display:flex;
-      flex-wrap:wrap;
-      gap:12px;
-      margin-top:18px;
-    }
-
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      padding:13px 16px;
-      border-radius:14px;
-      font-size:14px;
-      font-weight:700;
-      transition:.15s ease;
-      cursor:pointer;
-    }
-    .btn.primary{
-      border:1px solid rgba(95,124,255,.45);
-      background: linear-gradient(135deg, rgba(95,124,255,.26), rgba(255,178,74,.12));
-      color:#FFFFFF;
-    }
-    .btn.primary:hover{
-      box-shadow:0 14px 36px rgba(95,124,255,.24);
-      transform:translateY(-1px);
-    }
-    .btn.secondary{
-      border:1px solid rgba(255,255,255,.28);
-      background:rgba(255,255,255,.05);
-      color:#F1F4FF;
-    }
-    .btn.secondary:hover{
-      border-color:rgba(255,255,255,.40);
-      transform:translateY(-1px);
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:16px;
-      margin-top:22px;
-    }
-    @media (min-width:960px){
-      .grid{grid-template-columns:1.15fr .85fr}
-    }
-
+    section{padding:34px 0}
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
     .card{
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:18px;
-      padding:20px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      padding:16px;border-radius:16px;
+      background:rgba(255,255,255,.05);
+      border:1px solid rgba(255,255,255,.10);
     }
-    .card h2{
-      margin:0 0 8px;
-      font-size:18px;
-      color:#F3F6FF;
-    }
-    .card p{margin:0; color:var(--muted2)}
+    .card h3{margin:0 0 8px;font-size:15px}
+    .card p{margin:0;color:var(--muted);font-size:13.5px;line-height:1.55}
 
-    section{margin-top:34px}
+    .panel{
+      background:rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      border-radius:var(--radius);
+      box-shadow:var(--shadow);
+    }
+    .panel .pad{padding:18px}
 
-    .sectionTitle{
-      font-size:16px;
-      margin-bottom:12px;
-      color:#F0F4FF;
-      letter-spacing:-.2px;
-    }
-
-    .twoCol{
-      display:grid;
-      grid-template-columns:1fr;
-      gap:16px;
-    }
-    @media (min-width:960px){
-      .twoCol{grid-template-columns:1fr 1fr}
-    }
-
-    .box{
-      border:1px solid rgba(255,255,255,.18);
-      border-radius:18px;
-      padding:22px;
-      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
-    }
-    .box p{margin:0; color:var(--muted)}
-    .box p + p{margin-top:10px}
-
-    ul{margin:0; padding-left:18px; color:var(--muted)}
-    li{margin:10px 0}
-
-    form{
-      display:grid;
-      gap:12px;
-      margin-top:18px;
-    }
-    label{
-      font-size:13px;
-      color:rgba(200,210,234,.9);
-    }
-    input, select, textarea{
-      width:100%;
-      padding:12px;
+    label{font-size:12px;color:var(--muted2)}
+    input,select,textarea{
+      width:100%;padding:12px;
       border-radius:12px;
-      border:1px solid rgba(255,255,255,.20);
-      background:#0A1120;
-      color:#FFFFFF;
-      outline:none;
+      border:1px solid rgba(255,255,255,.14);
+      background:rgba(0,0,0,.25);
+      color:var(--text);
     }
     textarea{min-height:120px}
+    .formWrap{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .span2{grid-column:span 2}
 
-    .fine{
-      font-size:12px;
-      color:rgba(200,210,234,.78);
-      margin-top:10px;
-    }
-
-    footer{
-      margin-top:70px;
-      padding-top:22px;
-      border-top:1px solid rgba(255,255,255,.14);
-      font-size:12px;
-      color:rgba(200,210,234,.78);
-      display:flex;
-      justify-content:space-between;
-      flex-wrap:wrap;
-      gap:12px;
+    @media(max-width:900px){
+      .grid3{grid-template-columns:1fr}
+      .formWrap{grid-template-columns:1fr}
+      .span2{grid-column:auto}
     }
   </style>
 </head>
 
 <body>
-<div class="container">
 
-  <header>
-    <div class="brand">
-      <div class="logo">TripLogic.ai</div>
-      <div class="meta">Privately owned • Strategic discussions by inquiry only</div>
+<div class="topbar">
+  <div class="wrap brand">
+    <div class="logo"></div>
+    <strong>TripLogic.ai</strong>
+  </div>
+</div>
+
+<main class="wrap">
+
+<section>
+  <h1>Decision and optimization intelligence for complex planning.</h1>
+  <p class="sub">
+    TripLogic.ai evaluates tradeoffs, constraints, and outcomes across travel and operational systems—
+    so decisions remain coherent, defensible, and optimizable over time.
+  </p>
+</section>
+
+<section class="grid3">
+  <div class="card">
+    <h3>Model tradeoffs explicitly</h3>
+    <p>Evaluate cost, time, risk, policy, and experience simultaneously instead of optimizing in silos.</p>
+  </div>
+  <div class="card">
+    <h3>Preserve decision context</h3>
+    <p>Capture why a decision was made so optimization doesn’t reset with every change.</p>
+  </div>
+  <div class="card">
+    <h3>Optimize within constraints</h3>
+    <p>Respect policy, governance, and real-world limits while improving outcomes.</p>
+  </div>
+</section>
+
+<section>
+  <div class="panel">
+    <div class="pad">
+      <h2>What TripLogic.ai powers</h2>
+      <p class="sub">
+        Positioned as the reasoning layer inside a broader intelligence stack—
+        TripLogic.ai turns inputs into ranked options and measurable tradeoffs.
+      </p>
     </div>
-    <nav>
-      <a href="#positioning">Positioning</a>
-      <a href="#why">Why it matters</a>
-      <a href="#usecases">Use cases</a>
-      <a href="#fit">Strategic fit</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+  </div>
+</section>
 
-  <!-- HERO -->
-  <section class="hero" id="positioning">
-    <div class="pills">
-      <span class="pill logic">Decision infrastructure</span>
-      <span class="pill orch">Planning & orchestration</span>
-      <span class="pill neutral">Enterprise-grade</span>
-      <span class="pill neutral">Private asset</span>
-    </div>
-
-    <h1>Decision infrastructure for travel systems</h1>
-
-    <p class="subhead">
-      TripLogic.ai is positioned as the reasoning layer that plans, ranks, and re-optimizes travel outcomes —
-      evaluating routes, inventory, policies, and tradeoffs to produce the best viable itinerary under real constraints.
+<section class="grid3">
+  <div class="card">
+    <h3>Multi-objective planning</h3>
+    <p>Balance competing priorities across time, cost, risk, experience, and operational impact.</p>
+  </div>
+  <div class="card">
+    <h3>Scenario evaluation</h3>
+    <p>Compare options and counterfactuals before execution instead of reacting afterward.</p>
+  </div>
+  <div class="card">
+    <h3>Constraint-aware optimization</h3>
+    <p>Optimize only within approved guardrails so decisions stay compliant and defensible.</p>
+  </div>
+  <div class="card">
+    <h3>Outcome scoring</h3>
+    <p>Define success criteria and continuously evaluate how well decisions perform.</p>
+  </div>
+  <div class="card">
+    <h3>Coordination-ready outputs</h3>
+    <p>Feed ranked decisions directly into coordination and execution layers.</p>
+  </div>
+  <div class="card">
+    <h3>Foundation for intelligence stacks</h3>
+    <p>
+      TripLogic.ai pairs naturally with TravelAir.ai (coordination),
+      CommandAI.ai (control), and MotionAI.ai (execution).
     </p>
+  </div>
+</section>
 
-    <div class="ctaRow">
-      <a class="btn primary" href="#contact">Request a private discussion</a>
-      <a class="btn secondary" href="#fit">View strategic fit</a>
-    </div>
-
-    <div class="grid">
-      <div class="card">
-        <h2>What this brand represents</h2>
-        <p>
-          TripLogic signals structured reasoning and optimization — the layer that converts messy travel data
-          into coherent decisions that systems can execute.
-        </p>
-      </div>
-      <div class="card">
-        <h2>Where it sits in the stack</h2>
-        <p>
-          Above inventory, booking, and supplier systems — coordinating constraints, policies, and tradeoffs
-          before execution occurs.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- WHY -->
-  <section id="why">
-    <div class="sectionTitle">Why logic becomes the leverage layer</div>
-    <div class="box">
-      <p>
-        Travel is a constraint problem. Pricing shifts, inventory disappears, policies conflict, and disruptions
-        force constant replanning. The winners are the systems that can reason through tradeoffs and re-optimize
-        outcomes continuously.
-      </p>
-      <p>
-        TripLogic.ai is positioned to represent that decision layer — planning and orchestration that enables
-        modern travel systems to behave intelligently under real-world conditions.
+<section>
+  <div class="panel">
+    <div class="pad">
+      <h2>Built for strategic buyers</h2>
+      <p class="sub">
+        Designed for enterprises, platforms, and PE-backed operators that need
+        durable decision logic across systems and time horizons.
       </p>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- USE CASES -->
-  <section id="usecases">
-    <div class="sectionTitle">High-value use cases</div>
-    <div class="twoCol">
-      <div class="box">
-        <ul>
-          <li>Itinerary generation under time, cost, and policy constraints</li>
-          <li>Disruption handling: replanning, rerouting, and re-optimization</li>
-          <li>Enterprise travel policy logic, approvals, and compliance</li>
-          <li>Marketplace decisioning: ranking, bundling, and tradeoff evaluation</li>
-          <li>Multimodal mobility planning and coordination</li>
-        </ul>
-      </div>
-      <div class="box">
-        <p>
-          This asset is written for serious buyers — travel platforms, infrastructure providers, and strategic
-          acquirers who understand that decision intelligence becomes the control point as planning systems scale.
-        </p>
-        <p class="fine">
-          If TravelAir.ai is travel intelligence, TripLogic.ai is the logic that plans outcomes.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- STRATEGIC FIT -->
-  <section id="fit">
-    <div class="sectionTitle">Strategic acquisition profile</div>
-    <div class="twoCol">
-      <div class="box">
-        <ul>
-          <li>Travel marketplaces and itinerary platforms</li>
-          <li>Airline, hotel, and mobility infrastructure providers</li>
-          <li>Enterprise travel, expense, and policy platforms</li>
-          <li>Optimization, routing, and planning technology vendors</li>
-          <li>Strategic buyers seeking decision authority in travel systems</li>
-        </ul>
-      </div>
-      <div class="box">
-        <p>
-          TripLogic.ai is not publicly listed. Discussions are limited to strategic buyers evaluating long-term
-          positioning in travel and mobility decision systems.
-        </p>
-        <p class="fine">
-          Inquiries are reviewed selectively.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="sectionTitle">Request a private discussion</div>
-    <div class="box">
-      <p>
-        Use the form below to initiate a confidential conversation regarding TripLogic.ai.
-        Serious inquiries only.
-      </p>
+<section>
+  <div class="panel">
+    <div class="pad">
+      <h2>Inquire</h2>
+      <p class="sub">Serious acquisition, licensing, or strategic discussions only.</p>
 
       <form action="https://formspree.io/f/xnjjngql" method="POST">
-        <label>Name</label>
-        <input type="text" name="name" required />
-
-        <label>Email</label>
-        <input type="email" name="email" required />
-
-        <label>Company</label>
-        <input type="text" name="company" />
-
-        <label>Message</label>
-        <textarea name="message" placeholder="Who you are, what you’re building, and why TripLogic.ai is relevant."></textarea>
-
-        <input type="hidden" name="_subject" value="TripLogic.ai — Private Inquiry" />
-
-        <button class="btn primary" type="submit">Submit inquiry</button>
-
-        <div class="fine">
-          Messages lacking strategic context may not receive a response.
+        <div class="formWrap">
+          <input name="name" placeholder="Full name" required />
+          <input name="email" type="email" placeholder="Work email" required />
+          <input name="company" placeholder="Company / fund / organization" />
+          <input name="role" placeholder="Role or title" />
+          <select name="intent">
+            <option>Acquisition</option>
+            <option>Strategic partnership</option>
+            <option>Licensing</option>
+          </select>
+          <select name="timeline">
+            <option>Now</option>
+            <option>30–90 days</option>
+            <option>Exploratory</option>
+          </select>
+          <select class="span2" name="budget">
+            <option>Prefer not to say</option>
+            <option>$50k–$150k</option>
+            <option>$150k–$300k</option>
+            <option>$300k–$500k</option>
+            <option>$500k+</option>
+          </select>
+          <textarea class="span2" name="message" placeholder="What planning or optimization problem are you solving? What constraints matter most?"></textarea>
         </div>
+        <br />
+        <button type="submit">Submit inquiry</button>
       </form>
-
-      <div class="fine" style="margin-top:12px">
-        Note: This is an acquisition-grade asset presentation. It does not represent an operating product unless explicitly stated in writing.
-      </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <footer>
-    <div>© TripLogic.ai</div>
-    <div>Privately held • Strategic discussions only</div>
-  </footer>
+<footer class="wrap" style="color:var(--muted2);font-size:12px">
+  © <script>document.write(new Date().getFullYear())</script> TripLogic.ai — Decision & optimization intelligence. Privately held digital asset.
+</footer>
 
-</div>
+</main>
 </body>
 </html>
